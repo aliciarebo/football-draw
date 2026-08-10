@@ -1,0 +1,97 @@
+:host {
+  display: block;
+}
+
+:host ::ng-deep .prediction-drawer {
+  width: 40rem;
+}
+
+.predictions-page {
+  width: 100%;
+  min-height: calc(100dvh - 80px);
+  padding: 3rem 1.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* ESTADO VACÍO */
+
+.empty-prediction {
+  width: min(100%, 540px);
+  padding: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  text-align: center;
+
+  background: var(--p-content-background);
+  border: 1px solid var(--p-content-border-color);
+  border-radius: 1rem;
+}
+
+.empty-prediction .pi-ticket {
+  font-size: 3rem;
+  color: var(--p-primary-color);
+}
+
+.empty-prediction h1,
+.empty-prediction p {
+  margin: 0;
+}
+
+.empty-prediction p {
+  max-width: 420px;
+  color: var(--p-text-muted-color);
+}
+
+@media (max-width: 768px) {
+  :host ::ng-deep .prediction-drawer {
+    width: 100%;
+  }
+
+  .predictions-page {
+    padding: 2rem 1rem;
+  }
+
+  .prediction-receipt {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .receipt-meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .receipt-meta > div:last-child {
+    text-align: left;
+  }
+
+  .prediction-row {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prediction-row {
+    flex-direction: column;
+  }
+
+  .prediction-row strong {
+    text-align: left;
+  }
+
+  .receipt-footer {
+    flex-direction: column;
+  }
+
+  .empty-prediction {
+    padding: 2rem 1.25rem;
+  }
+}

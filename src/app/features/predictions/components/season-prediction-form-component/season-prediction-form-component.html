@@ -1,0 +1,123 @@
+
+
+    <form [formGroup]="seasonPredictionForm" (ngSubmit)="savePrediction()">
+        <legend>Selecciona tus pronósticos</legend>
+        @if(formSubmitted && seasonPredictionForm.invalid){
+            <p-message severity="error" variant="simple" icon="pi pi-exclamation-triangle" [closable]="true">Debes completar todo el formulario.</p-message>
+        }
+        <div >
+        <label for="championsWinner">Ganador de La Champions</label>
+        <p-select 
+            [filter]="true"
+            filterBy="clubName"
+            filterPlaceholder="Buscar equipo"
+            [options]="championsLeagueTeams" 
+            formControlName="championsWinner"
+            optionLabel="clubName"
+            placeholder="Selecciona un equipo"/>
+        </div>
+    
+        <div >
+        <label for="ligaWinner">Ganador de La Liga</label>
+        <p-select 
+            [filter]="true"
+            filterBy="clubName"
+            filterPlaceholder="Buscar equipo"
+            [options]="laLigaTeams" 
+            formControlName="laLigaWinner"
+            optionLabel="clubName"
+            placeholder="Selecciona un equipo"/>
+        </div>
+    
+        <div >
+        <label for="copaReyWinner">Ganador de la Copa del Rey</label>
+        <p-select 
+            [options]="laLigaTeams" 
+            formControlName="copaReyWinner"
+            optionLabel="clubName"
+            placeholder="Selecciona un equipo"/>
+        </div>
+    
+        <div >
+        <label for="superCopaWinner">Ganador de la Supercopa</label>
+        <p-select 
+            [options]="superCopaTeams" 
+            formControlName="superCopaWinner"
+            optionLabel="clubName"
+            placeholder="Selecciona un equipo"/>
+        </div>
+    
+        <div >
+        <label for="topScorer">Ganador del Pichichi</label>
+        <p-select 
+            [filter]="true"
+            filterBy="playerName"
+            filterPlaceholder="Buscar jugador"
+            [options]="laLigaPlayers" 
+            formControlName="topScorer"
+            optionLabel="playerName"
+            placeholder="Selecciona un jugador"/>
+        </div>
+    
+        <div >
+        <label for="standOutPlayer">Jugador revelación</label>
+        <p-select 
+            [filter]="true"
+            filterBy="playerName"
+            filterPlaceholder="Buscar jugador"
+            [options]="laLigaPlayers" 
+            formControlName="standOutPlayer"
+            optionLabel="playerName"
+            placeholder="Selecciona un jugador"/>
+        </div>
+    
+        <div >
+        <label for="disappointmentPlayer">Jugador decepción</label>
+        <p-select 
+            [filter]="true"
+            filterBy="playerName"
+            filterPlaceholder="Buscar jugador"
+            [options]="laLigaPlayers" 
+            optionLabel="playerName"
+            formControlName="disappointmentPlayer"
+            placeholder="Selecciona un jugador"/>
+        </div>
+    
+        <div >
+        <label for="ballondOr">Balón de Oro</label>
+        <p-select
+            [filter]="true"
+            filterBy="playerName"
+            filterPlaceholder="Buscar jugador"
+            [options]="ballonDorPlayers" 
+            optionLabel="playerName"
+            formControlName="ballondOr"
+            placeholder="Selecciona un jugador"/>
+        </div>
+    
+        <div >
+        <label for="goldenBoot">Bota de Oro</label>
+        <p-select
+            [filter]="true"
+            filterBy="playerName"
+            filterPlaceholder="Buscar jugador"
+            [options]="ballonDorPlayers" 
+            optionLabel="playerName"
+            formControlName="goldenBoot"
+            placeholder="Selecciona un jugador"/>
+        </div>
+    
+        <div >
+        <label for="zamoraWinner">Zamora</label>
+        <p-select
+            [filter]="true"
+            filterBy="playerName"
+            filterPlaceholder="Buscar jugador" 
+            [options]="goalKeepers" 
+            optionLabel="playerName"
+            formControlName="zamoraWinner"
+            placeholder="Selecciona un jugador"/>
+        </div>
+        <p-toast />
+        <button pButton type="submit"  > {{ initialPrediction ? 'Guardar cambios' : 'Enviar predicciones' }}</button>
+    </form>

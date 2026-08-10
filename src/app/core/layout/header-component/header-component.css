@@ -1,0 +1,101 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+header {
+  width: 100%;
+  max-width: 100%;
+}
+
+:host ::ng-deep .main-menubar {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 80px;
+  padding: 0 2rem;
+  box-sizing: border-box;
+
+  /* No pongas overflow hidden aquí */
+  overflow: visible;
+}
+
+:host ::ng-deep .p-menubar-item-link {
+  padding: 1rem 1.25rem;
+  font-size: 18px;
+}
+
+:host ::ng-deep .p-menubar-item-icon {
+  font-size: 1.25rem;
+}
+
+:host ::ng-deep .p-button {
+  padding: 0.8rem 1.25rem;
+  font-size: 1.1rem;
+}
+
+:host ::ng-deep .p-button-icon {
+  font-size: 1.2rem;
+}
+
+.logo {
+  margin-right: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  :host ::ng-deep .main-menubar {
+    width: 100%;
+    max-width: 100%;
+    min-height: 64px;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+
+    /* Necesario para que se vea el menú desplegado */
+    overflow: visible;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  :host ::ng-deep .p-menubar-button {
+    width: 3rem;
+    height: 3rem;
+    flex: 0 0 3rem;
+  }
+
+  :host ::ng-deep .p-menubar-button .p-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  :host ::ng-deep .p-menubar-end {
+    min-width: 0;
+    margin-left: auto;
+    flex-shrink: 0;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  :host ::ng-deep .p-menubar-end .p-button {
+    padding: 0.65rem 0.9rem;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  /*
+   * Lista que aparece al pulsar la hamburguesa.
+   * La limitamos al ancho real del menubar.
+   */
+  :host ::ng-deep .p-menubar-root-list {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,20 @@
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+legend {
+  margin: 24px 0px;
+}
+
+form {
+  margin: 10px;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
+  margin: 16px 0px;
+}

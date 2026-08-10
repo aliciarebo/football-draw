@@ -1,0 +1,672 @@
+[
+  {
+    "player_id": 29092,
+    "player_name": "Alejandro Balde Martínez",
+    "known_name": "Alejandro Balde",
+    "nationality": "Spain",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/spain-alejandro-balde.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 33425,
+    "player_name": "Aleksa Puric",
+    "known_name": "Aleksa Puric",
+    "nationality": "Serbia",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 7909,
+    "player_name": "Alexis Mac Allister",
+    "known_name": "Alexis Mac Allister",
+    "nationality": "Argentina",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/argentina-alexis-mac-allister.png",
+    "team_id": 135,
+    "team_name": "Liverpool FC"
+  },
+  {
+    "player_id": 7822,
+    "player_name": "Alphonso Boyle Davies",
+    "known_name": "Alphonso Davies",
+    "nationality": "Canada",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/canada-alphonso-davies.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 29200,
+    "player_name": "Álvaro Fernández",
+    "known_name": "Álvaro Fernández",
+    "nationality": "Spain",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 28446,
+    "player_name": "Andriy Lunin",
+    "known_name": "Andriy Lunin",
+    "nationality": "Ukraine",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/ukraine-andriy-lunin.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 27958,
+    "player_name": "Antoine Griezmann",
+    "known_name": "Antoine Griezmann",
+    "nationality": "France",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/france-antoine-griezmann.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 29394,
+    "player_name": "Carlos Martín Domínguez",
+    "known_name": "Carlos Martín",
+    "nationality": "Spain",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 27980,
+    "player_name": "Clément Nicolas Laurent Lenglet",
+    "known_name": "Clément Lenglet",
+    "nationality": "France",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 28600,
+    "player_name": "Conor John Gallagher",
+    "known_name": "Conor Gallagher",
+    "nationality": "England",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/england-conor-gallagher.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 28934,
+    "player_name": "Daniel Ceballos Fernández",
+    "known_name": "Dani Ceballos",
+    "nationality": "Spain",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/spain-dani-ceballos.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 9903,
+    "player_name": "David Olatukunbo Alaba",
+    "known_name": "David Alaba",
+    "nationality": "Austria",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/austria-david-alaba.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 29530,
+    "player_name": "Diego Kochen",
+    "known_name": "Diego Kochen",
+    "nationality": "USA",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 7885,
+    "player_name": "Éder Gabriel Militão",
+    "known_name": "Éder Militão",
+    "nationality": "Brazil",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 28596,
+    "player_name": "Eric García Martret",
+    "known_name": "Eric García",
+    "nationality": "Spain",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 28169,
+    "player_name": "Federico Chiesa",
+    "known_name": "Federico Chiesa",
+    "nationality": "Italy",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/italy-federico-chiesa.png",
+    "team_id": 135,
+    "team_name": "Liverpool FC"
+  },
+  {
+    "player_id": 8127,
+    "player_name": "Federico Santiago Valverde Dipetta",
+    "known_name": "Federico Valverde",
+    "nationality": "Uruguay",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/uruguay-federico-valverde.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 28203,
+    "player_name": "Ferland Mendy",
+    "known_name": "Ferland Mendy",
+    "nationality": "France",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/france-ferland-mendy.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 28825,
+    "player_name": "Francisco José García Torres",
+    "known_name": "Fran García",
+    "nationality": "Spain",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 27838,
+    "player_name": "Freddie Woodman",
+    "known_name": "Freddie Woodman",
+    "nationality": "England",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/england-freddie-woodman.png",
+    "team_id": 135,
+    "team_name": "Liverpool FC"
+  },
+  {
+    "player_id": 28939,
+    "player_name": "Gabriel Fernando de Jesus",
+    "known_name": "Gabriel Jesus",
+    "nationality": "Brazil",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/brazil-gabriel-jesus.png",
+    "team_id": 57,
+    "team_name": "Arsenal FC"
+  },
+  {
+    "player_id": 29276,
+    "player_name": "Gerard Martín Langreo",
+    "known_name": "Gerard Martín Langreo",
+    "nationality": "Spain",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 29573,
+    "player_name": "Giovanni Leoni",
+    "known_name": "Giovanni Leoni",
+    "nationality": "Italy",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 135,
+    "team_name": "Liverpool FC"
+  },
+  {
+    "player_id": 36579,
+    "player_name": "Harvey Daniel James Elliott",
+    "known_name": "Harvey Elliott",
+    "nationality": "England",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/england-harvey-elliott.png",
+    "team_id": 135,
+    "team_name": "Liverpool FC"
+  },
+  {
+    "player_id": 2735,
+    "player_name": "Hiroki Ito",
+    "known_name": "Hiroki Ito",
+    "nationality": "Japan",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/japan-hiroki-ito.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 29707,
+    "player_name": "Ibrahim Mbaye",
+    "known_name": "Ibrahim Mbaye",
+    "nationality": "France",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 62,
+    "team_name": "Paris Saint Germain FC"
+  },
+  {
+    "player_id": 28080,
+    "player_name": "Javier Galán Gil",
+    "known_name": "Javi Galán",
+    "nationality": "Spain",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 29371,
+    "player_name": "Jayden Danns",
+    "known_name": "Jayden Danns",
+    "nationality": "England",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 135,
+    "team_name": "Liverpool FC"
+  },
+  {
+    "player_id": 29016,
+    "player_name": "Joan García Pons",
+    "known_name": "Joan García",
+    "nationality": "Spain",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 29887,
+    "player_name": "Jofre Torrents Salvat",
+    "known_name": "Jofre Torrents Salvat",
+    "nationality": null,
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 29047,
+    "player_name": "Jonas Urbig",
+    "known_name": "Jonas Urbig",
+    "nationality": "Germany",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/germany-jonas-urbig.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 28918,
+    "player_name": "Jorge Resurrección Merodio",
+    "known_name": "Koke Merodio",
+    "nationality": "Spain",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/spain-koke-merodio.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 28002,
+    "player_name": "Joseph Dave Gomez",
+    "known_name": "Joe Gomez",
+    "nationality": "England",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/england-joe-gomez.png",
+    "team_id": 135,
+    "team_name": "Liverpool FC"
+  },
+  {
+    "player_id": 29723,
+    "player_name": "Juan Hernández Torres",
+    "known_name": "Juan Hernández Torres",
+    "nationality": "Spain",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 39527,
+    "player_name": "Kai Lukas Havertz",
+    "known_name": "Kai Havertz",
+    "nationality": "Germany",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/germany-kai-havertz.png",
+    "team_id": 57,
+    "team_name": "Arsenal FC"
+  },
+  {
+    "player_id": 28907,
+    "player_name": "Kepa Arrizabalaga Revuelta",
+    "known_name": "Kepa Arrizabalaga",
+    "nationality": "Spain",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/spain-kepa-arrizabalaga.png",
+    "team_id": 57,
+    "team_name": "Arsenal FC"
+  },
+  {
+    "player_id": 27840,
+    "player_name": "Manuel Neuer",
+    "known_name": "Manuel Neuer",
+    "nationality": "Germany",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/germany-manuel-neuer.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 29386,
+    "player_name": "Marc Casadó Torras",
+    "known_name": "Marc Casadó",
+    "nationality": "Spain",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 29277,
+    "player_name": "Marc Pubill Pagès",
+    "known_name": "Marc Pubill Pagès",
+    "nationality": "Spain",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 27956,
+    "player_name": "Marc-André ter Stegen",
+    "known_name": "Marc-André ter Stegen",
+    "nationality": "Germany",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 28015,
+    "player_name": "Marcus Bettinelli",
+    "known_name": "Marcus Bettinelli",
+    "nationality": "England",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/england-marcus-bettinelli.png",
+    "team_id": 87,
+    "team_name": "Manchester City FC"
+  },
+  {
+    "player_id": 29135,
+    "player_name": "Mario de Luis Jiménez",
+    "known_name": "Mario de Luis",
+    "nationality": "Spain",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 29095,
+    "player_name": "Matteo Ruggeri",
+    "known_name": "Matteo Ruggeri",
+    "nationality": "Italy",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/italy-matteo-ruggeri.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 28307,
+    "player_name": "Matvey Safonov",
+    "known_name": "Matvei Safonov",
+    "nationality": "Russia",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/russia-matvei-safonov.png",
+    "team_id": 62,
+    "team_name": "Paris Saint Germain FC"
+  },
+  {
+    "player_id": 2541,
+    "player_name": "Min-Jae Kim",
+    "known_name": "Min-Jae Kim",
+    "nationality": "South Korea",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/south-korea-min-jae-kim.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 7907,
+    "player_name": "Nahuel Molina Lucero",
+    "known_name": "Nahuel Molina",
+    "nationality": "Argentina",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/argentina-nahuel-molina.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 7908,
+    "player_name": "Nicolás González",
+    "known_name": "Nicolás González",
+    "nationality": "Argentina",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 109,
+    "team_name": "Club Atletico de Madrid"
+  },
+  {
+    "player_id": 28899,
+    "player_name": "Nicolás González Iglesias",
+    "known_name": "Nico González",
+    "nationality": "Spain",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 87,
+    "team_name": "Manchester City FC"
+  },
+  {
+    "player_id": 33319,
+    "player_name": "Pablo Martín Páez Gavira",
+    "known_name": "Gavi",
+    "nationality": "Spain",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/spain-gavi.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 29896,
+    "player_name": "Pedro Fernández Sarmiento",
+    "known_name": "Pedro Fernández Sarmiento",
+    "nationality": null,
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 27847,
+    "player_name": "Raphaël Adelino José Guerreiro",
+    "known_name": "Raphaël Guerreiro",
+    "nationality": "Portugal",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 77,
+    "player_name": "Raphael Dias Belloli",
+    "known_name": "Raphinha",
+    "nationality": "Brazil",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/brazil-raphinha.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 29388,
+    "player_name": "Raúl Asencio del Rosario",
+    "known_name": "Raúl Asencio del Rosario",
+    "nationality": "Spain",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 29695,
+    "player_name": "Renato Bellucci Marin",
+    "known_name": "Renato Bellucci Marin",
+    "nationality": "Brazil",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 62,
+    "team_name": "Paris Saint Germain FC"
+  },
+  {
+    "player_id": 8033,
+    "player_name": "Rodrygo Silva de Goes",
+    "known_name": "Rodrygo",
+    "nationality": "Brazil",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/brazil-rodrygo.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 8027,
+    "player_name": "Ronald Federico Araújo da Silva",
+    "known_name": "Ronald Araújo",
+    "nationality": "Uruguay",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 773,
+    "player_name": "Sacha Boey",
+    "known_name": "Sacha Boey",
+    "nationality": "Cameroon",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/cameroon-sacha-boey.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 8159,
+    "player_name": "Sávio Moreira de Oliveira",
+    "known_name": "Sávio",
+    "nationality": "Brazil",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 87,
+    "team_name": "Manchester City FC"
+  },
+  {
+    "player_id": 39675,
+    "player_name": "Stefan Ortega Moreno",
+    "known_name": "Stefan Ortega",
+    "nationality": "Germany",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/germany-stefan-ortega.png",
+    "team_id": 87,
+    "team_name": "Manchester City FC"
+  },
+  {
+    "player_id": 29511,
+    "player_name": "Stephen Mfuni",
+    "known_name": "Stephen Mfuni",
+    "nationality": "England",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 87,
+    "team_name": "Manchester City FC"
+  },
+  {
+    "player_id": 27843,
+    "player_name": "Sven Ulreich",
+    "known_name": "Sven Ulreich",
+    "nationality": "Germany",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/germany-sven-ulreich.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 33505,
+    "player_name": "Tomás Noël Marqués Morera",
+    "known_name": "Tomás Noël Marqués Morera",
+    "nationality": null,
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  },
+  {
+    "player_id": 7878,
+    "player_name": "Vinícius José Paixão de Oliveira Júnior",
+    "known_name": "Vinicius Junior",
+    "nationality": "Brazil",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/brazil-vinicius-junior.png",
+    "team_id": 78,
+    "team_name": "Real Madrid CF"
+  },
+  {
+    "player_id": 2377,
+    "player_name": "Wataru Endo",
+    "known_name": "Wataru Endo",
+    "nationality": "Japan",
+    "position": "Midfielder",
+    "player_image": "https://footballdata.io/img/player/japan-wataru-endo.png",
+    "team_id": 135,
+    "team_name": "Liverpool FC"
+  },
+  {
+    "player_id": 8098,
+    "player_name": "William Joel Pacho Tenorio",
+    "known_name": "Willian Pacho",
+    "nationality": "Ecuador",
+    "position": "Defender",
+    "player_image": "https://footballdata.io/img/player/ecuador-willian-pacho.png",
+    "team_id": 62,
+    "team_name": "Paris Saint Germain FC"
+  },
+  {
+    "player_id": 29847,
+    "player_name": "Wisdom Okpako Mike",
+    "known_name": "Wisdom Okpako Mike",
+    "nationality": "Germany",
+    "position": "Forward",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 37,
+    "team_name": "FC Bayern Munchen"
+  },
+  {
+    "player_id": 27948,
+    "player_name": "Wojciech Szczęsny",
+    "known_name": "Wojciech Szczęsny",
+    "nationality": "Poland",
+    "position": "Goalkeeper",
+    "player_image": "https://footballdata.io/img/player/default.png",
+    "team_id": 77,
+    "team_name": "FC Barcelona"
+  }
+]

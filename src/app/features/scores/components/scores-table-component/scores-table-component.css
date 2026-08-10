@@ -1,0 +1,138 @@
+.scores-table-container {
+  overflow: hidden;
+  border: 1px solid var(--p-content-border-color);
+  border-radius: 16px;
+  background-color: var(--p-content-background);
+}
+
+:host ::ng-deep .scores-table .p-datatable-thead > tr > th {
+  padding-top: 16px;
+  padding-right: 20px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+:host ::ng-deep .scores-table .p-datatable-tbody > tr > td {
+  padding-top: 16px;
+  padding-right: 20px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+}
+
+:host ::ng-deep .scores-table .p-datatable-tbody > tr {
+  transition: background-color 200ms ease;
+}
+
+:host ::ng-deep .scores-table .p-datatable-tbody > tr:hover {
+  background-color: var(--p-tag-primary-background);
+}
+
+/* PARTICIPANTE */
+
+.participant {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.participant-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  font-weight: 700;
+  color: var(--p-primary-contrast-color);
+  background-color: var(--p-primary-color);
+}
+
+/* POSICIÓN */
+
+.position-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  font-weight: 700;
+  background-color: var(--p-surface-200);
+}
+
+.position-first {
+  background-color: #f4c542;
+  color: #332700;
+}
+
+.position-second {
+  background-color: #c7ccd4;
+  color: #24272c;
+}
+
+.position-third {
+  background-color: #c98a57;
+  color: #2d180a;
+}
+
+/* PUNTOS */
+
+.points {
+  font-size: 18px;
+  color: var(--p-primary-color);
+}
+
+/* SIN PARTICIPANTES */
+
+.empty-scores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 64px;
+  padding-right: 16px;
+  padding-bottom: 64px;
+  padding-left: 16px;
+
+  text-align: center;
+
+  border: 1px dashed var(--p-content-border-color);
+  border-radius: 16px;
+}
+
+.empty-scores i {
+  margin-bottom: 12px;
+
+  font-size: 40px;
+  color: var(--p-primary-color);
+}
+
+.empty-scores h2 {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 0;
+}
+
+.empty-scores p {
+  margin: 0;
+  color: var(--p-text-muted-color);
+}
+
+/* MÓVIL */
+
+@media (max-width: 768px) {
+  .scores-table-container {
+    border-radius: 12px;
+  }
+}

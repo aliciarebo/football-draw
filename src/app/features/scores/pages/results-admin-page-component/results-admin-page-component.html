@@ -1,0 +1,10 @@
+
+<app-season-results-form-component
+ [initialResults]="scoresService.seasonResult()"
+[ballonDorPlayers]="optionsFacade.ballonDorPlayers()"
+[championsLeagueTeams]="optionsFacade.championsTeams()"
+[goalKeepers]="optionsFacade.goalkeeperPlayers()"
+[laLigaPlayers]="optionsFacade.laLigaPlayers()"
+[laLigaTeams]="optionsFacade.laLigaTeams()"
+(seasonResults)="saveSeasonResult($event)"
+/>

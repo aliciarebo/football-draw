@@ -1,0 +1,50 @@
+<form class="form"
+  [formGroup]="loginForm"
+  (ngSubmit)="login()"
+>
+  <div class="form-container">
+    <div class="form-input">
+      <label pLabel for="userName">
+        Usuario
+      </label>
+
+      <input
+        pInputText
+        id="userName"
+        type="text"
+        formControlName="userName"
+      />
+
+      @if (
+        loginForm.controls.userName.touched &&
+        loginForm.controls.userName.invalid
+      ) {
+        <small>El usuario es obligatorio.</small>
+      }
+    </div>
+
+    <div class="form-input">
+      <label pLabel for="password">
+        Contraseña
+      </label>
+
+      <input
+        pInputText
+        id="password"
+        type="password"
+        formControlName="password"
+      />
+
+      @if (
+        loginForm.controls.password.touched &&
+        loginForm.controls.password.invalid
+      ) {
+        <small>La contraseña es obligatoria.</small>
+      }
+    </div>
+
+    <button  pButton type="submit">
+      Entrar
+    </button>
+  </div>
+</form>

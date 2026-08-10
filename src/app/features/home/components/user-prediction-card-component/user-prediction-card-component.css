@@ -1,0 +1,54 @@
+.card-user-header {
+  padding: 1.5rem 1.5rem 0;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-user-header h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.user-avatar {
+  width: 3.25rem;
+  height: 3.25rem;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: var(--p-primary-color);
+  color: var(--p-primary-contrast-color);
+
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.prediction-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-row {
+  padding: 0.85rem 0;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  border-bottom: 1px solid var(--p-content-border-color);
+}
+
+.summary-row:last-child {
+  border-bottom: 0;
+}
+
+.summary-row span {
+  color: var(--p-text-muted-color);
+}
+
+.summary-row strong {
+  text-align: right;
+}

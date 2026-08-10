@@ -1,0 +1,54 @@
+@if(userPrediction){
+
+    <p-card styleClass="user-prediction-card">
+            <ng-template #header>
+              <div class="card-user-header">
+                <div class="user-avatar">
+                  {{ userPrediction.user.userName.charAt(0).toUpperCase() }}
+                </div>
+    
+                <div>
+                  <h2>{{ userPrediction.user.userName }}</h2>
+                  <p-tag
+                    value="Porra completada"
+                    severity="success"
+                    icon="pi pi-check"
+                  />
+                </div>
+              </div>
+            </ng-template>
+    
+            <div class="prediction-summary">
+              <div class="summary-row">
+                <span>LaLiga</span>
+                <strong>
+                  {{ userPrediction.seasonPrediction.laLigaWinner.clubName }}
+                </strong>
+              </div>
+    
+              <div class="summary-row">
+                <span>Champions</span>
+                <strong>
+                  {{ userPrediction.seasonPrediction.championsLeagueWinner.clubName }}
+                </strong>
+              </div>
+    
+              <div class="summary-row">
+                <span>Pichichi</span>
+                <strong>
+                  {{ userPrediction.seasonPrediction.topScorer.playerName }}
+                </strong>
+              </div>
+            </div>
+    
+            <ng-template #footer>
+              <p-button
+                label="Ver porra completa"
+                icon="pi pi-ticket"
+                severity="secondary"
+                [outlined]="true"
+                (onClick)="openPrediction.emit()"
+              />
+            </ng-template>
+    </p-card>
+}

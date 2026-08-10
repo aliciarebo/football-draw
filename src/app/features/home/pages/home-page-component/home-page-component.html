@@ -1,0 +1,41 @@
+<main class="home-page">
+  <header class="home-header">
+    <div>
+      <p class="home-kicker">Temporada 2026/27</p>
+      <h1>Porras de Los Furbitos</h1>
+      <p>
+        Consulta las predicciones realizadas por cada participante.
+      </p>
+    </div>
+
+    <p-tag
+      [value]="predictions().length + ' participantes'"
+      severity="info"
+    />
+  </header>
+
+  <section class="prediction-grid">
+    @for (prediction of predictions(); track prediction.user.id) {
+      <app-user-prediction-card-component
+      [userPrediction]="prediction"
+      (openPrediction)="openPrediction(prediction)"/>
+    }
+  </section>
+</main>
+
+<p-dialog
+  header="Porra completa"
+  [modal]="true"
+  [(visible)]="detailVisible"
+  [blockScroll]="true"
+  (onHide)="closePrediction()"
+  [style]="{ width: 'min(48rem, 95vw)' }"
+  [contentStyle]="{ padding: '1rem' }"
+>
+   @if (selectedUserPrediction; as selectedUser) {
+    <app-season-ticket-component
+      [userPrediction]="selectedUser"
+    />
+  }
+</p-dialog>
+

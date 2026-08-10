@@ -1,0 +1,93 @@
+@if(userPrediction){
+  <section class="prediction-receipt">
+      <header class="receipt-header">
+          <p class="receipt-kicker">Los Furbitos</p>
+          <h1>Mis pronósticos</h1>
+          <p>Temporada 2026/27</p>
+      </header>
+      <div class="receipt-meta">
+          <div>
+            <span class="receipt-label">Usuario</span>
+            <strong>{{userPrediction.user.userName}}</strong>
+          </div>
+  
+          <div>
+            <span class="receipt-label">Última modificación</span>
+            <strong>{{ userPrediction.updatedAt | date:'dd/MM/yyyy HH:mm' }}</strong>
+          </div>
+        </div>
+      <div class="receipt-divider"></div>
+      <div class="receipt-body">
+          <div class="prediction-row">
+            <span>Ganador de Champions</span>
+            <strong>
+              {{ userPrediction.seasonPrediction.championsLeagueWinner.clubName }}
+            </strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Ganador de LaLiga</span>
+            <strong>{{ userPrediction.seasonPrediction.laLigaWinner.clubName }}</strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Ganador de la Copa del Rey</span>
+            <strong>{{ userPrediction.seasonPrediction.copaReyWinner.clubName }}</strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Ganador de la Supercopa</span>
+            <strong>{{ userPrediction.seasonPrediction.superCopaWinner.clubName }}</strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Pichichi</span>
+            <strong>{{ userPrediction.seasonPrediction.topScorer.playerName }}</strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Jugador revelación</span>
+            <strong>{{ userPrediction.seasonPrediction.standOutPlayer.playerName }}</strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Jugador decepción</span>
+            <strong>
+              {{ userPrediction.seasonPrediction.disappointmentPlayer.playerName }}
+            </strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Balón de Oro</span>
+            <strong>{{ userPrediction.seasonPrediction.ballondOr.playerName }}</strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Bota de Oro</span>
+            <strong>{{ userPrediction.seasonPrediction.goldenBoot.playerName }}</strong>
+          </div>
+  
+          <div class="prediction-row">
+            <span>Zamora</span>
+            <strong>{{ userPrediction.seasonPrediction.zamoraWinner.playerName }}</strong>
+          </div>
+        </div>
+  
+        <div class="receipt-divider"></div>
+  
+          @if (editable) {
+            <footer class="receipt-footer">
+              <button
+                pButton
+                type="button"
+                icon="pi pi-pencil"
+                (click)="editPrediction.emit()"
+              >
+                Editar porra
+              </button>
+            </footer>
+          }
+
+      
+  </section>
+}

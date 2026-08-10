@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}

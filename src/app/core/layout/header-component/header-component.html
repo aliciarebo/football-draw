@@ -1,0 +1,45 @@
+<header>
+  <p-menubar
+    [model]="menuItems"
+    breakpoint="768px"
+    styleClass="main-menubar"
+  >
+    <ng-template #start>
+      <span class="logo">Los Furbitos</span>
+    </ng-template>
+
+    <ng-template #end>
+      @if (isAuthenticated()) {
+
+        <span style="padding-right: 10px;">{{ currentUser()?.userName }}</span>
+
+        @if (isAdmin()) {
+          <p-button
+            label="Admin"
+            icon="pi pi-cog"
+            routerLink="/admin"
+          />
+        }
+
+        <p-button
+          icon="pi pi-sign-out"
+          severity="secondary"
+          variant="text"
+          [rounded]="true"
+          ariaLabel="Cerrar sesión"
+          pTooltip="Cerrar sesión"
+          (onClick)="logOut()"
+        />
+
+      } @else {
+
+        <p-button
+          label="Login"
+          icon="pi pi-user"
+          routerLink="/login"
+        />
+
+      }
+    </ng-template>
+  </p-menubar>
+</header>

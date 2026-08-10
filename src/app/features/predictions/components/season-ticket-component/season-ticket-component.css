@@ -1,0 +1,125 @@
+.prediction-receipt {
+  position: relative;
+
+  width: min(100%, 720px);
+  padding: 3rem 3.5rem;
+
+  background: #f3eee4;
+  color: #26251f;
+
+  border: 1px solid #cfc2a5;
+  box-shadow: 0 12px 35px rgb(0 0 0 / 25%);
+
+  font-family: 'Courier New', monospace;
+}
+
+/* Efecto dentado superior e inferior */
+
+.prediction-receipt::before,
+.prediction-receipt::after {
+  content: '';
+  position: absolute;
+  left: 0;
+
+  width: 100%;
+  height: 12px;
+
+  background: radial-gradient(circle at 6px 6px, transparent 6px, #f3ead7 6.5px);
+
+  background-size: 18px 12px;
+  background-repeat: repeat-x;
+}
+
+.prediction-receipt::before {
+  top: -6px;
+}
+
+.prediction-receipt::after {
+  bottom: -6px;
+  transform: rotate(180deg);
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.receipt-header h1 {
+  margin: 0.25rem 0;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.receipt-header p {
+  margin: 0;
+}
+.receipt-kicker {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.7;
+}
+
+.receipt-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.receipt-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.receipt-meta > div:last-child {
+  text-align: right;
+}
+
+.receipt-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+}
+
+.receipt-divider {
+  margin: 1.5rem 0;
+  border-top: 2px dashed rgb(38 37 31 / 45%);
+}
+
+.receipt-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.prediction-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+
+  padding: 0.85rem 0;
+  border-bottom: 1px dotted rgb(38 37 31 / 28%);
+}
+
+.prediction-row:last-child {
+  border-bottom: 0;
+}
+
+.prediction-row span {
+  opacity: 0.8;
+}
+
+.prediction-row strong {
+  text-align: right;
+}
+
+.receipt-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}

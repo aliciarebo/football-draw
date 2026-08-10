@@ -1,0 +1,48 @@
+<main class="predictions-page">
+  @if (prediction(); as currentPrediction) {
+    <app-season-ticket-component 
+    [userPrediction]="currentPrediction"
+    (editPrediction)="editPrediction()"
+    [editable]="true"
+    />
+  } @else {
+    <section class="empty-prediction">
+      <i class="pi pi-ticket"></i>
+
+      <h1>Todavía no tienes ninguna porra</h1>
+
+      <p>
+        Elige los campeones y jugadores que crees que destacarán esta
+        temporada.
+      </p>
+
+      <button
+        pButton
+        type="button"
+        icon="pi pi-plus"
+        (click)="openDrawer()"
+      >
+        Crear porra
+      </button>
+    </section>
+  }
+</main>
+
+<p-drawer
+  [header]="prediction() ? 'Editar porra' : 'Crear porra'"
+  position="right"
+  [visible]="drawerVisible()"
+  [blockScroll]="true"
+  (visibleChange)="drawerVisible.set($event)"
+  styleClass="prediction-drawer"
+>
+  <app-season-prediction-form-component
+    [initialPrediction] = "prediction()?.seasonPrediction?? null"
+    [laLigaTeams]="optionsFacade.laLigaTeams()"
+    [championsLeagueTeams] = "optionsFacade.championsTeams()"
+    [laLigaPlayers] = "optionsFacade.laLigaPlayers()"
+    [goalKeepers] = "optionsFacade.goalkeeperPlayers()"
+    [ballonDorPlayers] = "optionsFacade.ballonDorPlayers()"
+    (seasonPrediction)="savePrediction($event)"
+  />
+</p-drawer>

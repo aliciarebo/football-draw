@@ -1,0 +1,130 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.results-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 32px;
+  border: 1px solid var(--p-content-border-color);
+  border-radius: 14px;
+  background-color: var(--p-content-background);
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.form-header h1 {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 0;
+  font-size: 28px;
+}
+
+.form-header p {
+  margin: 0;
+  color: var(--p-text-muted-color);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+  padding-bottom: 28px;
+  border-top: 1px solid var(--p-content-border-color);
+}
+
+.form-section h2 {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 20px;
+  margin-left: 0;
+  font-size: 19px;
+}
+
+.form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 10px);
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-select {
+  width: 100%;
+}
+
+:host ::ng-deep .form-select .p-select-label {
+  padding-top: 12px;
+  padding-right: 14px;
+  padding-bottom: 12px;
+  padding-left: 14px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
+:host ::ng-deep .form-actions .p-button {
+  min-width: 190px;
+  padding-top: 12px;
+  padding-right: 20px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+}
+
+@media (max-width: 700px) {
+  .results-form {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .form-header {
+    margin-bottom: 24px;
+  }
+
+  .form-header h1 {
+    font-size: 24px;
+  }
+
+  .form-fields {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-field {
+    width: 100%;
+  }
+
+  .form-actions {
+    justify-content: stretch;
+  }
+
+  :host ::ng-deep .form-actions .p-button {
+    width: 100%;
+  }
+}
