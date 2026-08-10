@@ -11,10 +11,10 @@ export class FootballService{
     http = inject(HttpClient);
 
     getLaLigaTeams(): Observable<FootballApiTeam[]>{
-        return this.http.get<FootballApiTeam[]>('/data/la-liga-teams.json');
+        return this.http.get<FootballApiTeam[]>('data/la-liga-teams.json');
     }
 
     getChampionsLeagueTeams(): Observable<FootballApiTeam[]>{
-        return this.http.get<FootballApiTeam[]>('/data/champions-league-teams.json')
+        return this.http.get<FootballApiTeam[]>('data/champions-league-teams.json')
     }
 }

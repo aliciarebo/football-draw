@@ -13,13 +13,13 @@ export class PlayerService {
 
   getLaLigaPlayers(): Observable<FootballApiPlayer[]> {
     return this.http.get<FootballApiPlayer[]>(
-      '/data/la-liga-players.json'
+      'data/la-liga-players.json'
     );
   }
 
   getBallonDorPlayers(): Observable<FootballApiPlayer[]>{
     return this.http.get<FootballApiPlayer[]>(
-      '/data/ballon-dor-players.json'
+      'data/ballon-dor-players.json'
     );
   }
 }
