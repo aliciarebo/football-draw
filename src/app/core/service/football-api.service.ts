@@ -3,6 +3,7 @@ import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { CompetitionTeamsResponse, FootballApiTeam } from "../models/football-api-team.model";
 import { environment } from "../../../environment/environment.development";
+import { Team } from "../../features/predictions/models/team-model";
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,11 @@ import { environment } from "../../../environment/environment.development";
 export class FootballService{
     http = inject(HttpClient);
 
-    getLaLigaTeams(): Observable<FootballApiTeam[]>{
-        return this.http.get<FootballApiTeam[]>('data/la-liga-teams.json');
+    getLaLigaTeams(): Observable<Team[]>{
+        return this.http.get<Team[]>('data/la-liga-teams.json');
     }
 
-    getChampionsLeagueTeams(): Observable<FootballApiTeam[]>{
-        return this.http.get<FootballApiTeam[]>('data/champions-league-teams.json')
+    getChampionsLeagueTeams(): Observable<Team[]>{
+        return this.http.get<Team[]>('data/champions-league-teams.json')
     }
 }

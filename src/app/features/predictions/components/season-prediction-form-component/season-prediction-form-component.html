@@ -51,11 +51,11 @@
         <label for="topScorer">Ganador del Pichichi</label>
         <p-select 
             [filter]="true"
-            filterBy="playerName"
+            filterBy="name"
             filterPlaceholder="Buscar jugador"
             [options]="laLigaPlayers" 
             formControlName="topScorer"
-            optionLabel="playerName"
+            optionLabel="name"
             placeholder="Selecciona un jugador"/>
         </div>
     
@@ -63,11 +63,11 @@
         <label for="standOutPlayer">Jugador revelación</label>
         <p-select 
             [filter]="true"
-            filterBy="playerName"
+            filterBy="name"
             filterPlaceholder="Buscar jugador"
             [options]="laLigaPlayers" 
             formControlName="standOutPlayer"
-            optionLabel="playerName"
+            optionLabel="name"
             placeholder="Selecciona un jugador"/>
         </div>
     
@@ -75,10 +75,10 @@
         <label for="disappointmentPlayer">Jugador decepción</label>
         <p-select 
             [filter]="true"
-            filterBy="playerName"
+            filterBy="name"
             filterPlaceholder="Buscar jugador"
             [options]="laLigaPlayers" 
-            optionLabel="playerName"
+            optionLabel="name"
             formControlName="disappointmentPlayer"
             placeholder="Selecciona un jugador"/>
         </div>
@@ -87,10 +87,10 @@
         <label for="ballondOr">Balón de Oro</label>
         <p-select
             [filter]="true"
-            filterBy="playerName"
+            filterBy="name"
             filterPlaceholder="Buscar jugador"
             [options]="ballonDorPlayers" 
-            optionLabel="playerName"
+            optionLabel="name"
             formControlName="ballondOr"
             placeholder="Selecciona un jugador"/>
         </div>
@@ -99,10 +99,10 @@
         <label for="goldenBoot">Bota de Oro</label>
         <p-select
             [filter]="true"
-            filterBy="playerName"
+            filterBy="name"
             filterPlaceholder="Buscar jugador"
             [options]="ballonDorPlayers" 
-            optionLabel="playerName"
+            optionLabel="name"
             formControlName="goldenBoot"
             placeholder="Selecciona un jugador"/>
         </div>
@@ -111,10 +111,10 @@
         <label for="zamoraWinner">Zamora</label>
         <p-select
             [filter]="true"
-            filterBy="playerName"
+            filterBy="name"
             filterPlaceholder="Buscar jugador" 
             [options]="goalKeepers" 
-            optionLabel="playerName"
+            optionLabel="name"
             formControlName="zamoraWinner"
             placeholder="Selecciona un jugador"/>
         </div>
