@@ -1,142 +1,122 @@
 [
   {
-    "id": 77,
-    "name": "Athletic Club",
+    "id": 5,
+    "clubName": "Athletic Club",
     "shortName": "Athletic",
-    "tla": "ATH",
-    "crest": "https://crests.football-data.org/77.png"
+    "image": "https://crests.football-data.org/77.png"
   },
   {
-    "id": 79,
-    "name": "CA Osasuna",
-    "shortName": "Osasuna",
-    "tla": "OSA",
-    "crest": "https://crests.football-data.org/79.png"
-  },
-  {
-    "id": 78,
-    "name": "Club Atlético de Madrid",
+    "id": 10,
+    "clubName": "Club Atlético de Madrid",
     "shortName": "Atleti",
-    "tla": "ATL",
-    "crest": "https://crests.football-data.org/78.png"
+    "image": "https://crests.football-data.org/78.png"
   },
   {
-    "id": 263,
-    "name": "Deportivo Alavés",
-    "shortName": "Alavés",
-    "tla": "ALA",
-    "crest": "https://crests.football-data.org/263.png"
+    "id": 8,
+    "clubName": "CA Osasuna",
+    "shortName": "Osasuna",
+    "image": "https://crests.football-data.org/79.png"
   },
   {
-    "id": 285,
-    "name": "Elche CF",
-    "shortName": "Elche",
-    "tla": "ELC",
-    "crest": "https://crests.football-data.org/285.png"
-  },
-  {
-    "id": 81,
-    "name": "FC Barcelona",
-    "shortName": "Barça",
-    "tla": "FCB",
-    "crest": "https://crests.football-data.org/81.png"
-  },
-  {
-    "id": 82,
-    "name": "Getafe CF",
-    "shortName": "Getafe",
-    "tla": "GET",
-    "crest": "https://crests.football-data.org/82.png"
-  },
-  {
-    "id": 88,
-    "name": "Levante UD",
-    "shortName": "Levante",
-    "tla": "LEV",
-    "crest": "https://crests.football-data.org/88.png"
-  },
-  {
-    "id": 84,
-    "name": "Málaga CF",
-    "shortName": "Málaga",
-    "tla": "MAL",
-    "crest": "https://crests.football-data.org/84.png"
-  },
-  {
-    "id": 87,
-    "name": "Rayo Vallecano de Madrid",
-    "shortName": "Rayo Vallecano",
-    "tla": "RAY",
-    "crest": "https://crests.football-data.org/87.png"
-  },
-  {
-    "id": 558,
-    "name": "RC Celta de Vigo",
-    "shortName": "Celta",
-    "tla": "CEL",
-    "crest": "https://crests.football-data.org/558.png"
-  },
-  {
-    "id": 560,
-    "name": "RC Deportivo La Coruña",
-    "shortName": "Deportivo",
-    "tla": "DEP",
-    "crest": "https://crests.football-data.org/560.png"
-  },
-  {
-    "id": 80,
-    "name": "RCD Espanyol de Barcelona",
+    "id": 38,
+    "clubName": "RCD Espanyol de Barcelona",
     "shortName": "Espanyol",
-    "tla": "ESP",
-    "crest": "https://crests.football-data.org/80.png"
+    "image": "https://crests.football-data.org/80.png"
   },
   {
-    "id": 90,
-    "name": "Real Betis Balompié",
-    "shortName": "Real Betis",
-    "tla": "BET",
-    "crest": "https://crests.football-data.org/90.png"
+    "id": 15,
+    "clubName": "FC Barcelona",
+    "shortName": "Barça",
+    "image": "https://crests.football-data.org/81.png"
   },
   {
-    "id": 86,
-    "name": "Real Madrid CF",
+    "id": 22,
+    "clubName": "Getafe CF",
+    "shortName": "Getafe",
+    "image": "https://crests.football-data.org/82.png"
+  },
+  {
+    "id": 26,
+    "clubName": "Málaga CF",
+    "shortName": "Málaga",
+    "image": "https://crests.football-data.org/84.png"
+  },
+  {
+    "id": 40,
+    "clubName": "Real Madrid CF",
     "shortName": "Real Madrid",
-    "tla": "RMA",
-    "crest": "https://crests.football-data.org/86.png"
+    "image": "https://crests.football-data.org/86.png"
   },
   {
-    "id": 5335,
-    "name": "Real Racing Club de Santander",
-    "shortName": "Santander",
-    "tla": "SAN",
-    "crest": "https://crests.football-data.org/5335.png"
+    "id": 35,
+    "clubName": "Rayo Vallecano de Madrid",
+    "shortName": "Rayo Vallecano",
+    "image": "https://crests.football-data.org/87.png"
   },
   {
-    "id": 92,
-    "name": "Real Sociedad de Fútbol",
+    "id": 24,
+    "clubName": "Levante UD",
+    "shortName": "Levante",
+    "image": "https://crests.football-data.org/88.png"
+  },
+  {
+    "id": 39,
+    "clubName": "Real Betis Balompié",
+    "shortName": "Real Betis",
+    "image": "https://crests.football-data.org/90.png"
+  },
+  {
+    "id": 42,
+    "clubName": "Real Sociedad de Fútbol",
     "shortName": "Real Sociedad",
-    "tla": "RSO",
-    "crest": "https://crests.football-data.org/92.png"
+    "image": "https://crests.football-data.org/92.png"
   },
   {
-    "id": 559,
-    "name": "Sevilla FC",
-    "shortName": "Sevilla FC",
-    "tla": "SEV",
-    "crest": "https://crests.football-data.org/559.png"
-  },
-  {
-    "id": 95,
-    "name": "Valencia CF",
-    "shortName": "Valencia",
-    "tla": "VAL",
-    "crest": "https://crests.football-data.org/95.png"
-  },
-  {
-    "id": 94,
-    "name": "Villarreal CF",
+    "id": 51,
+    "clubName": "Villarreal CF",
     "shortName": "Villarreal",
-    "tla": "VIL",
-    "crest": "https://crests.football-data.org/94.png"
+    "image": "https://crests.football-data.org/94.png"
+  },
+  {
+    "id": 50,
+    "clubName": "Valencia CF",
+    "shortName": "Valencia",
+    "image": "https://crests.football-data.org/95.png"
+  },
+  {
+    "id": 12,
+    "clubName": "Deportivo Alavés",
+    "shortName": "Alavés",
+    "image": "https://crests.football-data.org/263.png"
+  },
+  {
+    "id": 14,
+    "clubName": "Elche CF",
+    "shortName": "Elche",
+    "image": "https://crests.football-data.org/285.png"
+  },
+  {
+    "id": 36,
+    "clubName": "RC Celta de Vigo",
+    "shortName": "Celta",
+    "image": "https://crests.football-data.org/558.png"
+  },
+  {
+    "id": 44,
+    "clubName": "Sevilla FC",
+    "shortName": "Sevilla FC",
+    "image": "https://crests.football-data.org/559.png"
+  },
+  {
+    "id": 37,
+    "clubName": "RC Deportivo La Coruña",
+    "shortName": "Deportivo",
+    "image": "https://crests.football-data.org/560.png"
+  },
+  {
+    "id": 41,
+    "clubName": "Real Racing Club de Santander",
+    "shortName": "Santander",
+    "image": "https://crests.football-data.org/5335.png"
   }
 ]
