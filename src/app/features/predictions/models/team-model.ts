@@ -1,5 +1,6 @@
 export interface Team {
-    id: string,
-    clubName: string
-    image?: string
+  id: number;
+  clubName: string;
+  shortName: string;
+  image?: string;
 }
