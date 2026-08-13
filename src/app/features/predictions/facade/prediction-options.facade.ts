@@ -61,8 +61,9 @@ export class PredictionOptionsFacade {
         .subscribe((teams)=> {
             const laliga: Team[] = teams.map((apiTeam) => {
                 return {
-                id: apiTeam.id.toString(),
+                id: apiTeam.id,
                 clubName: apiTeam.name,
+                shortName: apiTeam.tla
                 };
             });
 
@@ -82,8 +83,9 @@ export class PredictionOptionsFacade {
         .subscribe((teams)=>{
             const champions: Team[] = teams.map((team)=>{
                 return{
-                    id: team.id.toString(),
-                    clubName: team.name
+                    id: team.id,
+                    clubName: team.name,
+                    shortName: team.tla
                 };
             });
 
@@ -103,8 +105,8 @@ export class PredictionOptionsFacade {
         .subscribe((players)=>{
             const laligaPlayers: Player[] = players.map((player)=>{
                 return {
-                    id: player.player_id.toString(),
-                    playerName: player.player_name,
+                    id: player.player_id,
+                    name: player.player_name,
                     position: player.position,
                 };
             });
@@ -124,8 +126,8 @@ export class PredictionOptionsFacade {
         .subscribe((players)=>{
             const ballonDorPlayers: Player[] = players.map((player)=>{
                 return {
-                    id: player.player_id.toString(),
-                    playerName: player.player_name,
+                    id: player.player_id,
+                    name: player.player_name,
                     position: player.position
                 };
             });
