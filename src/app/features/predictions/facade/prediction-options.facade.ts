@@ -59,15 +59,7 @@ export class PredictionOptionsFacade {
               )
             )
         .subscribe((teams)=> {
-            const laliga: Team[] = teams.map((apiTeam) => {
-                return {
-                id: apiTeam.id,
-                clubName: apiTeam.name,
-                shortName: apiTeam.tla
-                };
-            });
-
-            this.laLigaTeamsState.set(laliga);
+            this.laLigaTeamsState.set(teams);
         })
     }
 
@@ -81,15 +73,7 @@ export class PredictionOptionsFacade {
               )
             )
         .subscribe((teams)=>{
-            const champions: Team[] = teams.map((team)=>{
-                return{
-                    id: team.id,
-                    clubName: team.name,
-                    shortName: team.tla
-                };
-            });
-
-            this.championsTeamsState.set(champions);
+            this.championsTeamsState.set(teams);
         })
      }
 
@@ -103,14 +87,7 @@ export class PredictionOptionsFacade {
               )
             )
         .subscribe((players)=>{
-            const laligaPlayers: Player[] = players.map((player)=>{
-                return {
-                    id: player.player_id,
-                    name: player.player_name,
-                    position: player.position,
-                };
-            });
-            this.laLigaPlayersState.set(laligaPlayers);
+            this.laLigaPlayersState.set(players);
         })
      }
 
@@ -124,15 +101,7 @@ export class PredictionOptionsFacade {
               )
             )
         .subscribe((players)=>{
-            const ballonDorPlayers: Player[] = players.map((player)=>{
-                return {
-                    id: player.player_id,
-                    name: player.player_name,
-                    position: player.position
-                };
-            });
-
-            this.ballonDorPlayersState.set(ballonDorPlayers)
+            this.ballonDorPlayersState.set(players)
         })
      }
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environment/environment.development';
 import { FootballApiPlayer, PlayersApiResponse } from '../models/football-api-player.model';
+import { Player } from '../../features/predictions/models/player.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,14 @@ import { FootballApiPlayer, PlayersApiResponse } from '../models/football-api-pl
 export class PlayerService {
   private readonly http = inject(HttpClient);
 
-  getLaLigaPlayers(): Observable<FootballApiPlayer[]> {
-    return this.http.get<FootballApiPlayer[]>(
+  getLaLigaPlayers(): Observable<Player[]> {
+    return this.http.get<Player[]>(
       'data/la-liga-players.json'
     );
   }
 
-  getBallonDorPlayers(): Observable<FootballApiPlayer[]>{
-    return this.http.get<FootballApiPlayer[]>(
+  getBallonDorPlayers(): Observable<Player[]>{
+    return this.http.get<Player[]>(
       'data/ballon-dor-players.json'
     );
   }

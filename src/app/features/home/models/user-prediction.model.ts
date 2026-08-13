@@ -10,7 +10,7 @@ export interface UserPrediction {
     user: User
     seasonPrediction: SeasonPrediction,
     createdAt: string,
-    updatedAt?: string
+    updatedAt?: string | null
 }
 
 export interface LoginCredentials {
