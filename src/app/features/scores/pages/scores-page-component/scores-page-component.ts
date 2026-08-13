@@ -3,6 +3,7 @@ import { ScoresService } from '../../service/scores.service';
 import { PredictionService } from '../../../predictions/service/prediction.service';
 import { SeasonResults } from '../../models/season-result.model';
 import { ScoresTableComponent } from "../../components/scores-table-component/scores-table-component";
+import { PredictionFacade } from '../../../predictions/facade/predictions.facade';
 
 @Component({
   selector: 'app-scores-page-component',
@@ -11,7 +12,7 @@ import { ScoresTableComponent } from "../../components/scores-table-component/sc
   styleUrl: './scores-page-component.css',
 })
 export class ScoresPageComponent {
-  private readonly predictionService = inject(PredictionService);
+  private readonly predictionFacade = inject(PredictionFacade);
 
   private readonly scoresService = inject(ScoresService);
 
@@ -19,7 +20,7 @@ export class ScoresPageComponent {
   
   readonly scores = computed(() => {
     return this.scoresService.calculateScores(
-      this.predictionService.userPredictions(),
+      this.predictionFacade.usersPredictions(),
       this.realWinners()
     );
   });

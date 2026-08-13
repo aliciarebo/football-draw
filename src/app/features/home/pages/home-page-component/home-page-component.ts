@@ -8,6 +8,7 @@ import { TagModule } from 'primeng/tag';
 import { SeasonTicketComponent } from '../../../predictions/components/season-ticket-component/season-ticket-component';
 import { UserPredictionCardComponent } from "../../components/user-prediction-card-component/user-prediction-card-component";
 import { PredictionService } from '../../../predictions/service/prediction.service';
+import { PredictionFacade } from '../../../predictions/facade/predictions.facade';
 
 @Component({
   selector: 'app-home-page-component',
@@ -24,9 +25,9 @@ export class HomePageComponent {
 
   detailVisible = false;
   selectedUserPrediction: UserPrediction | null = null;
-  predictionService = inject(PredictionService)
+  predictionFacade = inject(PredictionFacade);
 
-  readonly predictions = this.predictionService.userPredictions;
+  readonly predictions = this.predictionFacade.usersPredictions;
 
   openPrediction(user: UserPrediction): void {
     this.selectedUserPrediction = user;

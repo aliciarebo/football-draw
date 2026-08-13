@@ -7,6 +7,7 @@ import { DividerModule } from 'primeng/divider';
 import { SeasonTicketComponent } from "../../components/season-ticket-component/season-ticket-component";
 import { PredictionService } from '../../service/prediction.service';
 import { PredictionOptionsFacade } from '../../facade/prediction-options.facade';
+import { PredictionFacade } from '../../facade/predictions.facade';
 
 @Component({
   selector: 'app-my-prediction-pages-component',
@@ -17,9 +18,9 @@ import { PredictionOptionsFacade } from '../../facade/prediction-options.facade'
 export class MyPredictionPagesComponent implements OnInit {
   
   readonly optionsFacade = inject(PredictionOptionsFacade);
-  readonly predictionService = inject(PredictionService);
+  readonly predictionFacade = inject(PredictionFacade);
   
-  readonly prediction = this.predictionService.currentUserPrediction;
+  readonly prediction = this.predictionFacade.userPrediction;
   
   drawerVisible = signal<boolean>(false);
 
@@ -40,7 +41,7 @@ export class MyPredictionPagesComponent implements OnInit {
   }
 
   savePrediction(prediction: SeasonPrediction){
-    this.predictionService.saveCurrentPrediction(prediction);
+    this.predictionFacade.createPrediction(prediction);
     this.closeDrawer();
   }
 

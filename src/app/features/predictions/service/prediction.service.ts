@@ -12,7 +12,7 @@ export class PredictionService {
   private readonly apiUrl = 'https://localhost:7106/api/'
 
 
-  private getPredictions(): Observable<UserPredictionResponse[]> {
+  getPredictions(): Observable<UserPredictionResponse[]> {
     return this.http.get<UserPredictionResponse[]>(this.apiUrl + 'predictions');
   }
   getCurrentUserPrediction(): Observable<UserPredictionResponse | null> {
