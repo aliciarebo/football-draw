@@ -1,50 +1,177 @@
-<form class="form"
-  [formGroup]="loginForm"
-  (ngSubmit)="login()"
->
-  <div class="form-container">
-    <div class="form-input">
-      <label pLabel for="userName">
-        Usuario
-      </label>
 
-      <input
-        pInputText
-        id="userName"
-        type="text"
-        formControlName="userName"
-      />
+  <div class="auth-wrapper">
 
-      @if (
-        loginForm.controls.userName.touched &&
-        loginForm.controls.userName.invalid
-      ) {
-        <small>El usuario es obligatorio.</small>
-      }
-    </div>
+  <p-card class="auth-card">
 
-    <div class="form-input">
-      <label pLabel for="password">
-        Contraseña
-      </label>
+    @if (hasUser()) {
 
-      <input
-        pInputText
-        id="password"
-        type="password"
-        formControlName="password"
-      />
+      <div class="auth-header">
+        <i class="pi pi-user"></i>
+        <h2>Iniciar sesión</h2>
+        <p>Accede para ver y gestionar tus predicciones</p>
+      </div>
 
-      @if (
-        loginForm.controls.password.touched &&
-        loginForm.controls.password.invalid
-      ) {
-        <small>La contraseña es obligatoria.</small>
-      }
-    </div>
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+        class="auth-form"
+      >
 
-    <button  pButton type="submit">
-      Entrar
-    </button>
-  </div>
-</form>
+        <div class="form-field">
+
+          <label for="loginUserName">
+            Usuario
+          </label>
+
+          <input
+            pInputText
+            id="loginUserName"
+            type="text"
+            formControlName="loginUserName"
+            placeholder="Tu nombre de usuario"
+          />
+
+          @if (
+            loginForm.controls.loginUserName.touched &&
+            loginForm.controls.loginUserName.invalid
+          ) {
+            <small class="error">
+              El usuario es obligatorio.
+            </small>
+          }
+
+        </div>
+
+        <div class="form-field">
+
+          <label for="loginPassword">
+            Contraseña
+          </label>
+
+          <p-password
+            inputId="loginPassword"
+            formControlName="loginPassword"
+            [feedback]="false"
+            [toggleMask]="true"
+            placeholder="Tu contraseña"
+            class="password-input"
+          />
+
+          @if (
+            loginForm.controls.loginPassword.touched &&
+            loginForm.controls.loginPassword.invalid
+          ) {
+            <small class="error">
+              La contraseña es obligatoria.
+            </small>
+          }
+
+        </div>
+
+        <p-button
+          type="submit"
+          label="Entrar"
+          icon="pi pi-sign-in"
+          styleClass="submit-button"
+        />
+
+      </form>
+
+      <div class="auth-footer">
+        <span>¿No tienes cuenta?</span>
+
+        <p-button
+          label="Crear cuenta"
+          [link]="true"
+          type="button"
+          (onClick)="showRegisterForm()"
+        />
+      </div>
+
+    }@else {
+      <div class="auth-header">
+        <i class="pi pi-user"></i>
+        <h2>Crear cuenta</h2>
+        <p>Crea un usuario para gestionar tus predicciones</p>
+      </div>
+      <form 
+        [formGroup]="createUserForm"
+        (ngSubmit)="createUser()"
+        class="auth-form"
+      >
+      <div class="form-field">
+        <label for="registerUserName">
+            Usuario
+          </label>
+
+          <input
+            pInputText
+            id="registerUserName"
+            type="text"
+            formControlName="registerUserName"
+            placeholder="Tu nombre de usuario"
+          />
+
+          @if (
+            createUserForm.controls.registerUserName.touched &&
+            createUserForm.controls.registerUserName.invalid
+          ) {
+            <small class="error">
+              El nombre es obligatorio.
+            </small>
+          }
+
+      </div>
+
+      <div class="form-field">
+
+          <label for="registerPassword">
+            Contraseña
+          </label>
+
+          <p-password
+            inputId="registerPassword"
+            formControlName="registerPassword"
+            [feedback]="false"
+            [toggleMask]="true"
+            placeholder="Tu contraseña"
+            class="password-input"
+          />
+
+          @if (
+            createUserForm.controls.registerPassword.touched &&
+            createUserForm.controls.registerPassword.invalid
+          ) {
+            <small class="error">
+              La contraseña es obligatoria.
+            </small>
+          }
+
+      </div>
+      <p-button
+          type="submit"
+          label="Crear usuario"
+          icon="pi pi-user-plus"
+          styleClass="submit-button"
+        />
+    
+      </form>
+
+    <div class="auth-footer">
+        <span>¿Ya tienes cuenta?</span>
+
+        <p-button
+          label="Iniciar sesión"
+          [link]="true"
+          type="button"
+          (onClick)="showLoginForm()"
+        />
+      </div>
+
+}
+
+  </p-card>
+
+</div>
+
+

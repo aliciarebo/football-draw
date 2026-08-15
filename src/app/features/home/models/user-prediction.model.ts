@@ -7,10 +7,10 @@ export interface User {
   role: UserRole;
 }
 export interface UserPrediction {
-    user: User
-    seasonPrediction: SeasonPrediction,
-    createdAt: string,
-    updatedAt?: string | null
+    user: User;
+    seasonPrediction: SeasonPrediction;
+    createdAt: string;
+    updatedAt?: string | null;
 }
 
 export interface LoginCredentials {
@@ -18,10 +18,15 @@ export interface LoginCredentials {
   password: string;
 }
 
+export interface UserCreationRequest{
+  userName: string;
+  password: string;
+}
+
 export interface UserPredictionResponse {
-  id: number,
-  user: User,
-  seasonPrediction: CreateSeasonPredictionRequest,
-  createdAt: string,
+  id: number;
+  user: User;
+  seasonPrediction: CreateSeasonPredictionRequest;
+  createdAt: string;
   updatedAt?: string | null;
 }
