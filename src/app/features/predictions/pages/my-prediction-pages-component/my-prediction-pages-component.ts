@@ -26,6 +26,7 @@ export class MyPredictionPagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.optionsFacade.loadOptions();
+    this.predictionFacade.obtainUserPrediction();
   }
 
   openDrawer(){
@@ -41,7 +42,12 @@ export class MyPredictionPagesComponent implements OnInit {
   }
 
   savePrediction(prediction: SeasonPrediction){
-    this.predictionFacade.createPrediction(prediction);
+    if (this.prediction()) {
+      this.predictionFacade.updatePrediction(prediction);
+    } else {
+      this.predictionFacade.createPrediction(prediction);
+    }
+
     this.closeDrawer();
   }
 

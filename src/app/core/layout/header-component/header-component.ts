@@ -3,8 +3,8 @@ import { Router, RouterLink } from "@angular/router";
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
-import { AuthService } from '../../service/auth-service';
 import { TooltipModule } from 'primeng/tooltip';
+import { AuthFacade } from '../../facade/auth.facade';
 
 
 @Component({
@@ -15,11 +15,11 @@ import { TooltipModule } from 'primeng/tooltip';
 })
 export class HeaderComponent {
 
-  readonly authService = inject(AuthService);
+  readonly authFacade = inject(AuthFacade);
   readonly router = inject(Router)
-  isAuthenticated = this.authService.isAuthenticated;
-  isAdmin = computed(()=> this.authService.currentUser()?.role === 'ADMIN');
-  currentUser = this.authService.currentUser;
+  isAuthenticated = this.authFacade.isAuthenticated;
+  isAdmin = computed(()=> this.authFacade.currentUser()?.role === 'ADMIN');
+  currentUser = this.authFacade.currentUser;
   menuItems : MenuItem[] = [
     {
       label: 'Inicio',
@@ -39,7 +39,7 @@ export class HeaderComponent {
   ]
 
   logOut(){
-    this.authService.logout();
+    this.authFacade.logout();
     this.router.navigate(['/login'])
   }
 }

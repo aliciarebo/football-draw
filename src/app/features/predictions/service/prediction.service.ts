@@ -27,6 +27,6 @@ export class PredictionService {
   }
 
   updateCurrentPrediction(prediction: CreateSeasonPredictionRequest): Observable<UserPredictionResponse> {
-    return this.http.put<UserPredictionResponse>(this.apiUrl, prediction );
+    return this.http.put<UserPredictionResponse>(this.apiUrl + 'predictions', prediction );
   }
 }
