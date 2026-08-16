@@ -1,4 +1,4 @@
-import { Component, inject, Signal, signal } from '@angular/core';
+import { Component, inject, OnInit, Signal, signal } from '@angular/core';
 import { SeasonPrediction } from '../../../predictions/models/season-prediction.model';
 import { UserPrediction } from '../../models/user-prediction.model';
 import { ButtonModule } from 'primeng/button';
@@ -21,13 +21,16 @@ import { PredictionFacade } from '../../../predictions/facade/predictions.facade
   templateUrl: './home-page-component.html',
   styleUrl: './home-page-component.css',
 })
-export class HomePageComponent {
-
+export class HomePageComponent implements OnInit{
   detailVisible = false;
   selectedUserPrediction: UserPrediction | null = null;
   predictionFacade = inject(PredictionFacade);
 
   readonly predictions = this.predictionFacade.usersPredictions;
+
+  ngOnInit(): void {
+    this.predictionFacade.obtainPredictions();
+  }
 
   openPrediction(user: UserPrediction): void {
     this.selectedUserPrediction = user;
