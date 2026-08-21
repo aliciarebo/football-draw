@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginCredentials, UserCreationRequest } from '../../../home/models/user-prediction.model';
 import { InputTextModule } from 'primeng/inputtext';
@@ -19,6 +19,8 @@ import { PasswordModule } from 'primeng/password';
 export class LoginFormComponent {
   @Output() loginCredentials = new EventEmitter<LoginCredentials>();
   @Output() userRegister = new EventEmitter<UserCreationRequest>();
+  @Input() loggingIn = false;
+  @Input() registering = false;
   hasUser = signal<boolean>(true);
   
   loginForm = new FormGroup({

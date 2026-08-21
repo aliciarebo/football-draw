@@ -3,6 +3,7 @@ import { AuthService } from "../service/auth-service";
 import { LoginCredentials, LoginResponse, User, UserCreationRequest } from "../../features/home/models/user-prediction.model";
 import { Notification } from "../service/notification.service";
 import { Router } from "@angular/router";
+import { finalize } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,20 @@ export class AuthFacade {
   private readonly isAuthenticatedState = signal<boolean>(!!localStorage.getItem('token'));
   readonly isAuthenticated = this.isAuthenticatedState.asReadonly();
 
+  private readonly loggingInState = signal(false);
+  readonly loggingIn = this.loggingInState.asReadonly();
+
+  private readonly registeringState = signal(false);
+  readonly registering = this.registeringState.asReadonly();
+
   login(credential: LoginCredentials): void {
+    this.loggingInState.set(true);
     this.authService.login(credential)
+      .pipe(
+        finalize(() => {
+          this.loggingInState.set(false);
+        })
+      )
       .subscribe( {
         next: (response) => {
           this.saveSession(response);
@@ -55,7 +68,13 @@ export class AuthFacade {
   }
 
   createUser(user: UserCreationRequest): void {
+    this.registeringState.set(true);
     this.authService.createUser(user)
+    .pipe(
+      finalize(() => {
+        this.registeringState.set(false);
+      })
+    )
     .subscribe({
       next:()=>{
         this.notificationService.successMessage('Usuario creado', 'El usuario se ha creado correctamente')
