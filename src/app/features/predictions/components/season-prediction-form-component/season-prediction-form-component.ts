@@ -1,21 +1,18 @@
-import { Component, EventEmitter, inject, Input, OnChanges, Output, signal, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, signal, SimpleChanges } from '@angular/core';
 import { SelectModule } from 'primeng/select';
 import { Team } from '../../models/team-model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Player } from '../../models/player.model';
 import { ButtonModule } from 'primeng/button';
 import { SeasonPrediction } from '../../models/season-prediction.model';
-import { MessageService } from 'primeng/api';
-import { ToastModule, Toast } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
-import { CompetitionTeamsResponse, FootballApiTeam } from '../../../../core/models/football-api-team.model';
 import { SUPER_COPA_TEAMS } from '../../../../core/data/super-copa-teams.data';
 
 
 @Component({
   selector: 'app-season-prediction-form-component',
-  imports: [SelectModule, ReactiveFormsModule, ButtonModule, Toast, MessageModule],
-  providers: [MessageService, ToastModule],
+  imports: [SelectModule, ReactiveFormsModule, ButtonModule, MessageModule],
+  providers: [],
   templateUrl: './season-prediction-form-component.html',
   styleUrl: './season-prediction-form-component.css',
 })
@@ -30,7 +27,6 @@ export class SeasonPredictionFormComponent implements OnChanges {
   @Input()initialPrediction: SeasonPrediction |null = null;
   readonly superCopaTeams = SUPER_COPA_TEAMS;
   @Output() searchPlayer = new EventEmitter<string>();
-  private messageService = inject(MessageService);
   formSubmitted = false;
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -111,7 +107,7 @@ export class SeasonPredictionFormComponent implements OnChanges {
       zamoraWinner: value.zamoraWinner
     };
 
-    this.messageService.add({ severity: 'contrast', summary: 'Predicción enviada con éxito', detail: 'Tus predicciones se han guardado correctamente ' });
+    
     console.log(prediction)
     this.seasonPrediction.emit(prediction);
   }
