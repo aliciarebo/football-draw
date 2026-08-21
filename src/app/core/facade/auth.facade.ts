@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { AuthService } from "../service/auth-service";
-import { LoginCredentials, User, UserCreationRequest } from "../../features/home/models/user-prediction.model";
+import { LoginCredentials, LoginResponse, User, UserCreationRequest } from "../../features/home/models/user-prediction.model";
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +16,22 @@ export class AuthFacade {
 
   login(credential: LoginCredentials): void {
     this.authService.login(credential)
-    .subscribe((response)=>{
-       this.currentUserState.set(response.user);
-       this.isAuthenticatedState.set(true);
-       localStorage.setItem(
-          'token',
-          response.token
-        );
+      .subscribe((response) => {
+        this.saveSession(response);
+      });
+  }
 
-        localStorage.setItem(
-          'user',
-          JSON.stringify(response.user)
-        );
-      })
+  refreshToken(refreshToken: string) {
+    return this.authService.refreshToken(refreshToken);
+  }
+
+  saveSession(response: LoginResponse): void {
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('refreshToken', response.refreshToken);
+    localStorage.setItem('user', JSON.stringify(response.user));
+
+    this.currentUserState.set(response.user);
+    this.isAuthenticatedState.set(true);
   }
 
   createUser(user: UserCreationRequest): void {
@@ -39,6 +42,7 @@ export class AuthFacade {
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('refreshToken');
 
     this.isAuthenticatedState.set(false);
     this.currentUserState.set(null);
