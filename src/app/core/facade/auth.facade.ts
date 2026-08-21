@@ -1,12 +1,18 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { AuthService } from "../service/auth-service";
 import { LoginCredentials, LoginResponse, User, UserCreationRequest } from "../../features/home/models/user-prediction.model";
+import { Notification } from "../service/notification.service";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthFacade {
   private readonly authService = inject(AuthService);
+
+  private readonly notificationService = inject(Notification);
+
+  private readonly router = inject(Router);
   
   private readonly currentUserState = signal<User|null>(this.loadUser());
   readonly currentUser = this.currentUserState.asReadonly();
@@ -16,8 +22,22 @@ export class AuthFacade {
 
   login(credential: LoginCredentials): void {
     this.authService.login(credential)
-      .subscribe((response) => {
-        this.saveSession(response);
+      .subscribe( {
+        next: (response) => {
+          this.saveSession(response);
+
+          this.notificationService.successMessage(
+            'Sesión iniciada',
+            `Bienvenido, ${response.user.userName}.`
+          );
+          this.router.navigate(['/']);
+        },
+        error: () => {
+          this.notificationService.errorMessage(
+            'Error al iniciar sesión',
+            'Usuario o contraseña incorrectos.'
+          );
+        }
       });
   }
 
@@ -36,7 +56,14 @@ export class AuthFacade {
 
   createUser(user: UserCreationRequest): void {
     this.authService.createUser(user)
-    .subscribe();
+    .subscribe({
+      next:()=>{
+        this.notificationService.successMessage('Usuario creado', 'El usuario se ha creado correctamente')
+      },
+      error: ()=>{
+        this.notificationService.errorMessage('Error', 'No se pudo crear el usuario')
+      }
+    });
   }
 
   logout(): void {

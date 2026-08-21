@@ -7,9 +7,9 @@ import { MessageService } from 'primeng/api';
 export class Notification {
   private readonly messageService = inject(MessageService);
 
-  sucessMessage(summary: string, detail: string): void {
+  successMessage(summary: string, detail: string): void {
     this.messageService.add({
-      severity: 'sucess',
+      severity: 'success',
       summary,
       detail
     });
