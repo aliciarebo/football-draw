@@ -1,5 +1,6 @@
 
 
+    
     <form [formGroup]="seasonPredictionForm" (ngSubmit)="savePrediction()">
         <legend>Selecciona tus pronósticos</legend>
         @if(formSubmitted && seasonPredictionForm.invalid){
@@ -128,5 +129,10 @@
             formControlName="zamoraWinner"
             placeholder="Selecciona un jugador"/>
         </div>
-        <button pButton type="submit"  > {{ initialPrediction ? 'Guardar cambios' : 'Enviar predicciones' }}</button>
+        <p-button
+            type="submit"
+            [label]="initialPrediction ? 'Guardar cambios' : 'Enviar predicciones'"
+            [loading]="saving"
+            [disabled]="saving"
+        />
     </form>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output, signal, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { SelectModule } from 'primeng/select';
 import { Team } from '../../models/team-model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -25,9 +25,11 @@ export class SeasonPredictionFormComponent implements OnChanges {
   @Input()goalKeepers: Player[] = [];
   @Input()ballonDorPlayers: Player[] = [];
   @Input()initialPrediction: SeasonPrediction |null = null;
+  @Input() saving = false;
   readonly superCopaTeams = SUPER_COPA_TEAMS;
   @Output() searchPlayer = new EventEmitter<string>();
   formSubmitted = false;
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if ( changes['initialPrediction'] && this.initialPrediction){

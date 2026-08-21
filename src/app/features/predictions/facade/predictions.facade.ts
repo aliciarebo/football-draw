@@ -5,7 +5,7 @@ import { mapSeasonPredictionToRequest } from "../mappers/season-prediction.mappe
 import { mapUserPredictionResponse } from "../mappers/user-prediction.mapper";
 import { SeasonPrediction } from "../models/season-prediction.model";
 import { Notification } from "../../../core/service/notification.service";
-import { finalize } from "rxjs";
+import { catchError, finalize, tap, throwError } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -97,64 +97,68 @@ export class PredictionFacade {
     })
     }
 
-    createPrediction(prediction: SeasonPrediction): void {
-        this.savingPredictionState.set(true);
-        
-        const request = mapSeasonPredictionToRequest(prediction);
-        
-        this.predictionService.saveCurrentPrediction(request)
-        .pipe(
-            finalize(() => {
-                this.savingPredictionState.set(false);
-            })
-        )
-        .subscribe( {
-            next: (response) => {
-                if(!response){
-                    return;
-                }
-                const prediction = mapUserPredictionResponse(response);
-                this.userPredictionState.set(prediction);
+    createPrediction(prediction: SeasonPrediction) {
+    this.savingPredictionState.set(true);
 
-                this.notificationService.successMessage(
-                    'Porra guardada',
-                    'Tus predicciones se han guardado correctamente.'
-                );
-            },
-            error: () => {
-                this.notificationService.errorMessage(
-                    'Error',
-                    'No se pudieron guardar tus predicciones.'
-                );
+    const request = mapSeasonPredictionToRequest(prediction);
+
+    return this.predictionService.saveCurrentPrediction(request)
+    .pipe(
+        tap((response) => {
+            if (!response) {
+                return;
             }
-        });
+            const newPrediction = mapUserPredictionResponse(response);
+            this.userPredictionState.set(newPrediction);
+
+            this.notificationService.successMessage(
+                'Porra guardada',
+                'Tus predicciones se han guardado correctamente.'
+            );
+        }),
+        catchError((error) => {
+            this.notificationService.errorMessage(
+                'Error',
+                'No se pudieron guardar tus predicciones.'
+            );
+
+            return throwError(() => error);
+        }),
+        finalize(() => {
+            this.savingPredictionState.set(false);
+        })
+    );
     }
 
-    updatePrediction(prediction: SeasonPrediction): void {
+    updatePrediction(prediction: SeasonPrediction) {
         this.savingPredictionState.set(true);
+
         const request = mapSeasonPredictionToRequest(prediction);
-        this.predictionService.updateCurrentPrediction(request)
+
+        return this.predictionService.updateCurrentPrediction(request)
         .pipe(
-            finalize(() => {
-                this.savingPredictionState.set(false);
-            })
-        )
-        .subscribe({
-            next: (response) =>{
+            tap((response) => {
                 const updatedPrediction = mapUserPredictionResponse(response);
+
                 this.userPredictionState.set(updatedPrediction);
 
                 this.notificationService.successMessage(
                     'Porra actualizada',
                     'Tus cambios se han guardado correctamente.'
                 );
-            },
-            error: ()=>{
+            }),
+            catchError((error) => {
                 this.notificationService.errorMessage(
                     'Error',
                     'No se pudieron guardar tus cambios.'
                 );
-            }
-    });
+
+                return throwError(() => error);
+            }),
+            finalize(() => {
+                this.savingPredictionState.set(false);
+            })
+        );
+        
     }
 }

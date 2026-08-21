@@ -5,13 +5,13 @@ import { ButtonModule } from 'primeng/button';
 import { DrawerModule } from 'primeng/drawer';
 import { DividerModule } from 'primeng/divider';
 import { SeasonTicketComponent } from "../../components/season-ticket-component/season-ticket-component";
-import { PredictionService } from '../../service/prediction.service';
 import { PredictionOptionsFacade } from '../../facade/prediction-options.facade';
 import { PredictionFacade } from '../../facade/predictions.facade';
+import { ProgressSpinner } from "primeng/progressspinner";
 
 @Component({
   selector: 'app-my-prediction-pages-component',
-  imports: [SeasonPredictionFormComponent, ButtonModule, DrawerModule, DividerModule, SeasonTicketComponent],
+  imports: [SeasonPredictionFormComponent, ButtonModule, DrawerModule, DividerModule, SeasonTicketComponent, ProgressSpinner],
   templateUrl: './my-prediction-pages-component.html',
   styleUrl: './my-prediction-pages-component.css',
 })
@@ -21,6 +21,9 @@ export class MyPredictionPagesComponent implements OnInit {
   readonly predictionFacade = inject(PredictionFacade);
   
   readonly prediction = this.predictionFacade.userPrediction;
+
+  readonly savingPrediction = this.predictionFacade.savingPrediction;
+  readonly loadingUserPrediction = this.predictionFacade.loadingUserPrediction;
   
   drawerVisible = signal<boolean>(false);
 
@@ -41,15 +44,17 @@ export class MyPredictionPagesComponent implements OnInit {
     this.openDrawer();
   }
 
-  savePrediction(prediction: SeasonPrediction){
-    if (this.prediction()) {
-      this.predictionFacade.updatePrediction(prediction);
-    } else {
-      this.predictionFacade.createPrediction(prediction);
-    }
+  savePrediction(prediction: SeasonPrediction): void {
+  const request$ = this.prediction()
+    ? this.predictionFacade.updatePrediction(prediction)
+    : this.predictionFacade.createPrediction(prediction);
 
-    this.closeDrawer();
-  }
+  request$.subscribe({
+    next: () => {
+      this.closeDrawer();
+    }
+  });
+}
 
   
 }
