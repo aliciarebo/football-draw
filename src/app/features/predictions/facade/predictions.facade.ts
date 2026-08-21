@@ -5,6 +5,7 @@ import { mapSeasonPredictionToRequest } from "../mappers/season-prediction.mappe
 import { mapUserPredictionResponse } from "../mappers/user-prediction.mapper";
 import { SeasonPrediction } from "../models/season-prediction.model";
 import { Notification } from "../../../core/service/notification.service";
+import { finalize } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,23 @@ export class PredictionFacade {
     private readonly usersPredictionsState = signal<UserPrediction[]>([]);
     readonly usersPredictions = this.usersPredictionsState.asReadonly();
 
+    private readonly loadingPredictionsState = signal(false);
+    readonly loadingPredictions = this.loadingPredictionsState.asReadonly();
+
+    private readonly loadingUserPredictionState = signal(false);
+    readonly loadingUserPrediction = this.loadingUserPredictionState.asReadonly();
+
+    private readonly savingPredictionState = signal(false);
+    readonly savingPrediction = this.savingPredictionState.asReadonly();
+
     obtainUserPrediction(): void{
+        this.loadingUserPredictionState.set(true);
         this.predictionService.getCurrentUserPrediction()
+        .pipe(
+            finalize(() => {
+                this.loadingUserPredictionState.set(false);
+            })
+        )
         .subscribe((response)=> {
         if (!response) {
             this.userPredictionState.set(null);
@@ -38,7 +54,13 @@ export class PredictionFacade {
     }
 
     obtainUserPredictionById(userId:number):void{
+        this.loadingUserPredictionState.set(true);
         this.predictionService.getUserPredictionById(userId)
+        .pipe(
+            finalize(() => {
+                this.loadingUserPredictionState.set(false);
+            })
+        )
         .subscribe((response) => {
         if (!response) {
             this.userPredictionByIdState.set(null);
@@ -52,16 +74,40 @@ export class PredictionFacade {
     }
 
     obtainPredictions(): void {
+        this.loadingPredictionsState.set(true);
         this.predictionService.getPredictions()
-        .subscribe((response)=>{
-            const predictions = response.map((res)=> mapUserPredictionResponse(res));
-            this.usersPredictionsState.set(predictions);
-        })
+        .pipe(
+            finalize(() => {
+                this.loadingPredictionsState.set(false);
+            })
+        )
+        .subscribe({
+            next: (response) => {
+                const predictions =
+                response.map((res) => mapUserPredictionResponse(res));
+
+                this.usersPredictionsState.set(predictions);
+            },
+            error: () => {
+                this.notificationService.errorMessage(
+                'Error',
+                'No se pudieron cargar las predicciones.'
+                );
+            }
+    })
     }
 
     createPrediction(prediction: SeasonPrediction): void {
+        this.savingPredictionState.set(true);
+        
         const request = mapSeasonPredictionToRequest(prediction);
+        
         this.predictionService.saveCurrentPrediction(request)
+        .pipe(
+            finalize(() => {
+                this.savingPredictionState.set(false);
+            })
+        )
         .subscribe( {
             next: (response) => {
                 if(!response){
@@ -85,8 +131,14 @@ export class PredictionFacade {
     }
 
     updatePrediction(prediction: SeasonPrediction): void {
+        this.savingPredictionState.set(true);
         const request = mapSeasonPredictionToRequest(prediction);
         this.predictionService.updateCurrentPrediction(request)
+        .pipe(
+            finalize(() => {
+                this.savingPredictionState.set(false);
+            })
+        )
         .subscribe({
             next: (response) =>{
                 const updatedPrediction = mapUserPredictionResponse(response);
