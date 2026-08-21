@@ -73,6 +73,8 @@
           label="Entrar"
           icon="pi pi-sign-in"
           styleClass="submit-button"
+          [loading]="loggingIn"
+          [disabled]="loggingIn"
         />
 
       </form>
@@ -153,6 +155,9 @@
           label="Crear usuario"
           icon="pi pi-user-plus"
           styleClass="submit-button"
+          [loading]="registering"
+          [disabled]="registering"
+          
         />
     
       </form>

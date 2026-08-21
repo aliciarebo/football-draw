@@ -1,5 +1,4 @@
-import { Component, inject, OnInit, Signal, signal } from '@angular/core';
-import { SeasonPrediction } from '../../../predictions/models/season-prediction.model';
+import { Component, inject, OnInit} from '@angular/core';
 import { UserPrediction } from '../../models/user-prediction.model';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -7,8 +6,8 @@ import { DialogModule } from 'primeng/dialog';
 import { TagModule } from 'primeng/tag';
 import { SeasonTicketComponent } from '../../../predictions/components/season-ticket-component/season-ticket-component';
 import { UserPredictionCardComponent } from "../../components/user-prediction-card-component/user-prediction-card-component";
-import { PredictionService } from '../../../predictions/service/prediction.service';
 import { PredictionFacade } from '../../../predictions/facade/predictions.facade';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-home-page-component',
@@ -16,7 +15,7 @@ import { PredictionFacade } from '../../../predictions/facade/predictions.facade
     CardModule,
     DialogModule,
     TagModule,
-    SeasonTicketComponent, UserPredictionCardComponent],
+    SeasonTicketComponent, UserPredictionCardComponent, ProgressSpinnerModule],
   providers: [],
   templateUrl: './home-page-component.html',
   styleUrl: './home-page-component.css',

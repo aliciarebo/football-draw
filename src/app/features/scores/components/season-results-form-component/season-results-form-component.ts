@@ -7,12 +7,11 @@ import { SelectModule } from 'primeng/select';
 import { ButtonModule } from 'primeng/button';
 
 import { SUPER_COPA_TEAMS } from '../../../../core/data/super-copa-teams.data';
-import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-season-results-form-component',
-  imports: [ReactiveFormsModule, SelectModule, ButtonModule,ToastModule ],
+  imports: [ReactiveFormsModule, SelectModule, ButtonModule ],
   providers: [MessageService],
   templateUrl: './season-results-form-component.html',
   styleUrl: './season-results-form-component.css',
@@ -28,7 +27,6 @@ export class SeasonResultsFormComponent implements OnChanges{
   @Input() initialResults: SeasonResults|null = null;
   readonly superCopaTeams = SUPER_COPA_TEAMS;
 
-  private readonly messageService = inject(MessageService);
 
   ngOnChanges(changes: SimpleChanges): void {
     if (
@@ -55,13 +53,6 @@ export class SeasonResultsFormComponent implements OnChanges{
 
   sendSeasonResult(){
     this.seasonResults.emit(this.seasonResultsForm.getRawValue());
-
-    //TODO Cuando tenga backend el Toast de éxito debería mostrarse tras recibir una respuesta correcta del servidor.
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Resultados guardados',
-      detail: 'La clasificación se ha actualizado correctamente'
-    });
 
   }
 }
