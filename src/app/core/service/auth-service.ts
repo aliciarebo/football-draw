@@ -17,6 +17,10 @@ export class AuthService {
     return this.http.post<LoginResponse>(this.apiUrl + '/login', credential);
   }
 
+  refreshToken(refreshToken:string): Observable<LoginResponse>{
+    return this.http.post<LoginResponse>(this.apiUrl + '/refresh', {refreshToken});
+  }
+
   getUsers():Observable<User[]>{
     return this.http.get<User[]>(this.apiUrl);
   }

@@ -20,6 +20,7 @@ export interface LoginCredentials {
 export interface LoginResponse {
   user: User;
   token: string;
+  refreshToken: string;
 }
 
 export interface UserCreationRequest{
