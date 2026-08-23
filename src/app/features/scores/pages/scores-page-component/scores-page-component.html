@@ -11,6 +11,26 @@
     </p>
   </header>
 
-  <app-scores-table-component
-  [scores] = "scores()"/>
+  @if (predictionFacade.loadingPredictions() || seasonResultFacade.loadingResults()) {
+    <div class="loading-container">
+      <p-progress-spinner />
+      <span>Cargando clasificación...</span>
+    </div>
+  } @else if (!seasonResultFacade.seasonResults()) {
+    <section class="empty-scores">
+      <i class="pi pi-clock"></i>
+
+      <h2>
+        Todavía no hay resultados oficiales
+      </h2>
+
+      <p>
+        La clasificación se actualizará cuando se añadan los primeros resultados de la temporada.
+      </p>
+    </section>
+  } @else {
+    <app-scores-table-component
+      [scores]="scores()"
+    />
+  }
 </main>

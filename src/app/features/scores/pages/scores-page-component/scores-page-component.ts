@@ -1,27 +1,39 @@
-import { Component, computed, inject, Signal } from '@angular/core';
+import { Component, computed, inject, OnInit} from '@angular/core';
 import { ScoresService } from '../../service/scores.service';
-import { PredictionService } from '../../../predictions/service/prediction.service';
-import { SeasonResults } from '../../models/season-result.model';
 import { ScoresTableComponent } from "../../components/scores-table-component/scores-table-component";
 import { PredictionFacade } from '../../../predictions/facade/predictions.facade';
+import { SeasonResultFacade } from '../../facade/season-results.facade';
+import { ProgressSpinnerModule } from "primeng/progressspinner";
 
 @Component({
   selector: 'app-scores-page-component',
-  imports: [ ScoresTableComponent],
+  imports: [ScoresTableComponent, ProgressSpinnerModule],
   templateUrl: './scores-page-component.html',
   styleUrl: './scores-page-component.css',
 })
-export class ScoresPageComponent {
-  private readonly predictionFacade = inject(PredictionFacade);
+export class ScoresPageComponent implements OnInit{
+  readonly predictionFacade = inject(PredictionFacade);
+  
+  readonly seasonResultFacade = inject(SeasonResultFacade);
 
-  private readonly scoresService = inject(ScoresService);
+  readonly scoresService = inject(ScoresService);
 
-  private readonly realWinners:Signal<SeasonResults> = this.scoresService.seasonResult;
   
   readonly scores = computed(() => {
+    const results = this.seasonResultFacade.seasonResults();
+
+    if (!results) {
+      return [];
+    }
+
     return this.scoresService.calculateScores(
       this.predictionFacade.usersPredictions(),
-      this.realWinners()
+      results
     );
   });
+
+  ngOnInit(): void {
+    this.predictionFacade.obtainPredictions();
+    this.seasonResultFacade.obtainSeasonResults();
+  }
 }
