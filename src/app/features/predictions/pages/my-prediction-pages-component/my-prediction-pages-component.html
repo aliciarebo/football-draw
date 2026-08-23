@@ -3,6 +3,18 @@
     <p-progress-spinner />
     <span>Cargando tu porra...</span>
   </div>
+}@else if (predictionFacade.userPredictionError()) {
+
+  <section class="error-state">
+    <i class="pi pi-exclamation-triangle"></i>
+
+    <h2>No se pudo cargar tu porra</h2>
+
+    <p>
+      {{ predictionFacade.userPredictionError() }}
+    </p>
+  </section>
+
 }@else {
 
   <main class="predictions-page">
