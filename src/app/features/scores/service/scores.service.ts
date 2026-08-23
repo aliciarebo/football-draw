@@ -25,16 +25,18 @@ export class ScoresService {
     zamoraWinner: 10
   };
 
-  calculateScores(
-    predictions: UserPrediction[],
-    realWinners: SeasonResults
-  ): UserScore[] {
-    const scores = predictions.map((prediction) => {
-      let points = 0;
-      let correctPredictions = 0;
-      const breakdown: ScoreBreakdown[] = [];
+ calculateScores(
+  predictions: UserPrediction[],
+  realWinners: SeasonResults
+): UserScore[] {
 
-      const laLigaCorrect = realWinners.laLigaWinner
+  const scores = predictions.map((prediction) => {
+    let points = 0;
+    let correctPredictions = 0;
+
+    const breakdown: ScoreBreakdown[] = [];
+
+    const laLigaCorrect = realWinners.laLigaWinner
       ? this.isCorrectPrediction(
           prediction.seasonPrediction.laLigaWinner,
           realWinners.laLigaWinner
@@ -75,60 +77,190 @@ export class ScoresService {
       correctPredictions++;
     }
 
-      if (this.isCorrectPrediction(prediction.seasonPrediction.copaReyWinner, realWinners.copaReyWinner)) {
-        points += this.SCORE_RULES.copaReyWinner;
-        correctPredictions++;
-      }
 
-      if (this.isCorrectPrediction(prediction.seasonPrediction.superCopaWinner, realWinners.superCopaWinner)) {
-        points += this.SCORE_RULES.superCopaWinner;
-        correctPredictions++;
-      }
+    const copaReyCorrect = realWinners.copaReyWinner
+      ? this.isCorrectPrediction(
+          prediction.seasonPrediction.copaReyWinner,
+          realWinners.copaReyWinner
+        )
+      : null;
 
-      if (this.isCorrectPrediction(prediction.seasonPrediction.ballondOr, realWinners.ballondOr)) {
-        points += this.SCORE_RULES.ballondOr;
-        correctPredictions++;
-      }
-
-      if (this.isCorrectPrediction(prediction.seasonPrediction.topScorer, realWinners.topScorer)) {
-        points += this.SCORE_RULES.topScorer;
-        correctPredictions++;
-      }
-
-      if (this.isCorrectPrediction(prediction.seasonPrediction.standOutPlayer, realWinners.standOutPlayer)) {
-        points += this.SCORE_RULES.standOutPlayer;
-        correctPredictions++;
-      }
-
-      if (this.isCorrectPrediction(prediction.seasonPrediction.disappointmentPlayer, realWinners.disappointmentPlayer)) {
-        points += this.SCORE_RULES.disappointmentPlayer;
-        correctPredictions++;
-      }
-
-      if (this.isCorrectPrediction(prediction.seasonPrediction.zamoraWinner, realWinners.zamoraWinner)) {
-        points += this.SCORE_RULES.zamoraWinner;
-        correctPredictions++;
-      }
-
-      if (this.isCorrectPrediction(prediction.seasonPrediction.goldenBoot, realWinners.goldenBoot)) {
-        points += this.SCORE_RULES.goldenBoot;
-        correctPredictions++;
-      }
-
-      return {
-        user: prediction.user,
-        points,
-        correctPredictions,
-        totalPredictions: 10,
-        breakdown: breakdown
-      };
+    breakdown.push({
+      label: 'Copa del Rey',
+      points: copaReyCorrect
+        ? this.SCORE_RULES.copaReyWinner
+        : 0,
+      correct: copaReyCorrect
     });
-  
-    return scores.sort(
-      (firstScore, secondScore) =>
-        secondScore.points - firstScore.points
-    );
-  }
+
+    if (copaReyCorrect) {
+      points += this.SCORE_RULES.copaReyWinner;
+      correctPredictions++;
+    }
+
+
+    const superCopaCorrect = realWinners.superCopaWinner
+      ? this.isCorrectPrediction(
+          prediction.seasonPrediction.superCopaWinner,
+          realWinners.superCopaWinner
+        )
+      : null;
+
+    breakdown.push({
+      label: 'Supercopa',
+      points: superCopaCorrect
+        ? this.SCORE_RULES.superCopaWinner
+        : 0,
+      correct: superCopaCorrect
+    });
+
+    if (superCopaCorrect) {
+      points += this.SCORE_RULES.superCopaWinner;
+      correctPredictions++;
+    }
+
+
+    const topScorerCorrect = realWinners.topScorer
+      ? this.isCorrectPrediction(
+          prediction.seasonPrediction.topScorer,
+          realWinners.topScorer
+        )
+      : null;
+
+    breakdown.push({
+      label: 'Pichichi',
+      points: topScorerCorrect
+        ? this.SCORE_RULES.topScorer
+        : 0,
+      correct: topScorerCorrect
+    });
+
+    if (topScorerCorrect) {
+      points += this.SCORE_RULES.topScorer;
+      correctPredictions++;
+    }
+
+
+    const standOutPlayerCorrect = realWinners.standOutPlayer
+      ? this.isCorrectPrediction(
+          prediction.seasonPrediction.standOutPlayer,
+          realWinners.standOutPlayer
+        )
+      : null;
+
+    breakdown.push({
+      label: 'Jugador revelación',
+      points: standOutPlayerCorrect
+        ? this.SCORE_RULES.standOutPlayer
+        : 0,
+      correct: standOutPlayerCorrect
+    });
+
+    if (standOutPlayerCorrect) {
+      points += this.SCORE_RULES.standOutPlayer;
+      correctPredictions++;
+    }
+
+
+    const disappointmentPlayerCorrect =
+      realWinners.disappointmentPlayer
+        ? this.isCorrectPrediction(
+            prediction.seasonPrediction.disappointmentPlayer,
+            realWinners.disappointmentPlayer
+          )
+        : null;
+
+    breakdown.push({
+      label: 'Jugador decepción',
+      points: disappointmentPlayerCorrect
+        ? this.SCORE_RULES.disappointmentPlayer
+        : 0,
+      correct: disappointmentPlayerCorrect
+    });
+
+    if (disappointmentPlayerCorrect) {
+      points += this.SCORE_RULES.disappointmentPlayer;
+      correctPredictions++;
+    }
+
+
+    const ballonDorCorrect = realWinners.ballondOr
+      ? this.isCorrectPrediction(
+          prediction.seasonPrediction.ballondOr,
+          realWinners.ballondOr
+        )
+      : null;
+
+    breakdown.push({
+      label: 'Balón de Oro',
+      points: ballonDorCorrect
+        ? this.SCORE_RULES.ballondOr
+        : 0,
+      correct: ballonDorCorrect
+    });
+
+    if (ballonDorCorrect) {
+      points += this.SCORE_RULES.ballondOr;
+      correctPredictions++;
+    }
+
+
+    const goldenBootCorrect = realWinners.goldenBoot
+      ? this.isCorrectPrediction(
+          prediction.seasonPrediction.goldenBoot,
+          realWinners.goldenBoot
+        )
+      : null;
+
+    breakdown.push({
+      label: 'Bota de Oro',
+      points: goldenBootCorrect
+        ? this.SCORE_RULES.goldenBoot
+        : 0,
+      correct: goldenBootCorrect
+    });
+
+    if (goldenBootCorrect) {
+      points += this.SCORE_RULES.goldenBoot;
+      correctPredictions++;
+    }
+
+
+    const zamoraCorrect = realWinners.zamoraWinner
+      ? this.isCorrectPrediction(
+          prediction.seasonPrediction.zamoraWinner,
+          realWinners.zamoraWinner
+        )
+      : null;
+
+    breakdown.push({
+      label: 'Trofeo Zamora',
+      points: zamoraCorrect
+        ? this.SCORE_RULES.zamoraWinner
+        : 0,
+      correct: zamoraCorrect
+    });
+
+    if (zamoraCorrect) {
+      points += this.SCORE_RULES.zamoraWinner;
+      correctPredictions++;
+    }
+
+
+    return {
+      user: prediction.user,
+      points,
+      correctPredictions,
+      totalPredictions: 10,
+      breakdown
+    };
+  });
+
+  return scores.sort(
+    (firstScore, secondScore) =>
+      secondScore.points - firstScore.points
+  );
+}
 
   private isCorrectPrediction(
     predicted: Team | Player,

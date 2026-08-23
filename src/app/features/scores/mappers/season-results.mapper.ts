@@ -1,4 +1,4 @@
-import { SeasonResults, SeasonResultsResponse } from "../models/season-result.model";
+import { SeasonResults, SeasonResultsRequest, SeasonResultsResponse } from "../models/season-result.model";
 
 export function mapSeasonResultsResponse(response: SeasonResultsResponse): SeasonResults{
     return {
@@ -94,5 +94,57 @@ export function mapSeasonResultsResponse(response: SeasonResultsResponse): Seaso
             position: null
           }
         : null
+  };
+}
+
+export function mapSeasonResultsToRequest(results: SeasonResults): SeasonResultsRequest {
+  return {
+    laLigaWinnerId: results.laLigaWinner?.id ?? null,
+    laLigaWinnerName: results.laLigaWinner?.clubName ?? null,
+
+    championsLeagueWinnerId:
+      results.championsLeagueWinner?.id ?? null,
+    championsLeagueWinnerName:
+      results.championsLeagueWinner?.clubName ?? null,
+
+    copaReyWinnerId:
+      results.copaReyWinner?.id ?? null,
+    copaReyWinnerName:
+      results.copaReyWinner?.clubName ?? null,
+
+    superCopaWinnerId:
+      results.superCopaWinner?.id ?? null,
+    superCopaWinnerName:
+      results.superCopaWinner?.clubName ?? null,
+
+    topScorerId:
+      results.topScorer?.id ?? null,
+    topScorerName:
+      results.topScorer?.name ?? null,
+
+    standOutPlayerId:
+      results.standOutPlayer?.id ?? null,
+    standOutPlayerName:
+      results.standOutPlayer?.name ?? null,
+
+    disappointmentPlayerId:
+      results.disappointmentPlayer?.id ?? null,
+    disappointmentPlayerName:
+      results.disappointmentPlayer?.name ?? null,
+
+    ballondOrId:
+      results.ballondOr?.id ?? null,
+    ballondOrName:
+      results.ballondOr?.name ?? null,
+
+    goldenBootId:
+      results.goldenBoot?.id ?? null,
+    goldenBootName:
+      results.goldenBoot?.name ?? null,
+
+    zamoraWinnerId:
+      results.zamoraWinner?.id ?? null,
+    zamoraWinnerName:
+      results.zamoraWinner?.name ?? null
   };
 }

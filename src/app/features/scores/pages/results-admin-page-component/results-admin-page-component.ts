@@ -1,13 +1,8 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit} from '@angular/core';
 import { SeasonResultsFormComponent } from "../../components/season-results-form-component/season-results-form-component";
-import { FootballService } from '../../../../core/service/football-api.service';
-import { PlayerService } from '../../../../core/service/football-players-api.service';
-import { Player } from '../../../predictions/models/player.model';
-import { Team } from '../../../predictions/models/team-model';
-import { catchError, EMPTY } from 'rxjs';
 import { SeasonResults } from '../../models/season-result.model';
-import { ScoresService } from '../../service/scores.service';
 import { PredictionOptionsFacade } from '../../../predictions/facade/prediction-options.facade';
+import { SeasonResultFacade } from '../../facade/season-results.facade';
 
 @Component({
   selector: 'app-results-admin-page-component',
@@ -17,16 +12,19 @@ import { PredictionOptionsFacade } from '../../../predictions/facade/prediction-
 })
 export class ResultsAdminPageComponent implements OnInit{
 
-  scoresService = inject(ScoresService);
   readonly optionsFacade = inject(PredictionOptionsFacade);
+  readonly seasonResultFacade = inject(SeasonResultFacade);
 
   ngOnInit(): void {
     this.optionsFacade.loadOptions();
+    this.seasonResultFacade.obtainSeasonResults();
   }
 
-
   saveSeasonResult(result: SeasonResults){
-    this.scoresService.updateResults(result);
+    const request$ = this.seasonResultFacade.seasonResults()
+    ? this.seasonResultFacade.updateSeasonResults(result)
+    : this.seasonResultFacade.createSeasonResults(result);
 
+  request$.subscribe();
   }
 }

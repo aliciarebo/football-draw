@@ -1,8 +1,8 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { SeasonResults } from "../models/season-result.model";
 import { SeasonResultService } from "../service/season-results.service";
-import { finalize } from "rxjs";
-import { mapSeasonResultsResponse } from "../mappers/season-results.mapper";
+import { catchError, finalize, tap, throwError } from "rxjs";
+import { mapSeasonResultsResponse, mapSeasonResultsToRequest } from "../mappers/season-results.mapper";
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +43,46 @@ export class SeasonResultFacade {
               this.seasonResultsState.set(null);
             }
           });
-      }
+    }
+
+    createSeasonResults(result: SeasonResults) {
+      this.savingResultsState.set(true);
+
+      const request = mapSeasonResultsToRequest(result);
+
+      return this.seasonResultService.createSeasonResults(request).pipe(
+        tap((response) => {
+          const mappedResult = mapSeasonResultsResponse(response);
+
+          this.seasonResultsState.set(mappedResult);
+        }),
+        catchError((error) => {
+          return throwError(() => error);
+        }),
+        finalize(() => {
+          this.savingResultsState.set(false);
+        })
+      );
+    }
+
+    updateSeasonResults(result: SeasonResults) {
+      this.savingResultsState.set(true);
+
+      const request = mapSeasonResultsToRequest(result);
+
+      return this.seasonResultService.updateSeasonResults(request).pipe(
+        tap((response) => {
+          const mappedResult = mapSeasonResultsResponse(response);
+
+          this.seasonResultsState.set(mappedResult);
+        }),
+        catchError((error) => {
+          return throwError(() => error);
+        }),
+        finalize(() => {
+          this.savingResultsState.set(false);
+        })
+      );
+    }
 }
+
