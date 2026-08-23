@@ -6,6 +6,7 @@ import { mapUserPredictionResponse } from "../mappers/user-prediction.mapper";
 import { SeasonPrediction } from "../models/season-prediction.model";
 import { Notification } from "../../../core/service/notification.service";
 import { catchError, finalize, tap, throwError } from "rxjs";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -33,24 +34,40 @@ export class PredictionFacade {
     private readonly savingPredictionState = signal(false);
     readonly savingPrediction = this.savingPredictionState.asReadonly();
 
+    private readonly userPredictionErrorState = signal<string | null>(null);
+    readonly userPredictionError = this.userPredictionErrorState.asReadonly();
+
+    private readonly predictionsErrorState = signal<string | null>(null);
+    readonly predictionsError = this.predictionsErrorState.asReadonly();
+
     obtainUserPrediction(): void{
         this.loadingUserPredictionState.set(true);
+        this.userPredictionErrorState.set(null);
         this.predictionService.getCurrentUserPrediction()
         .pipe(
             finalize(() => {
                 this.loadingUserPredictionState.set(false);
             })
         )
-        .subscribe((response)=> {
-        if (!response) {
-            this.userPredictionState.set(null);
-            return;
-        }
+        .subscribe({
+            next: (response) => {
+                if (!response) {
+                    this.userPredictionState.set(null);
+                    return;
+                }
 
-        const prediction = mapUserPredictionResponse(response);
+                this.userPredictionState.set(mapUserPredictionResponse(response));
+            },
 
-        this.userPredictionState.set(prediction);
-        })
+            error: (error: HttpErrorResponse) => {
+                if (error.status === 0) {
+                    this.userPredictionErrorState.set('No se pudo conectar con el servidor.');
+                    return;
+                }
+
+                this.userPredictionErrorState.set('No se pudo cargar tu porra.');
+            }
+    });
     }
 
     obtainUserPredictionById(userId:number):void{
@@ -75,26 +92,29 @@ export class PredictionFacade {
 
     obtainPredictions(): void {
         this.loadingPredictionsState.set(true);
+        this.predictionsErrorState.set(null);
+
         this.predictionService.getPredictions()
-        .pipe(
+            .pipe(
             finalize(() => {
                 this.loadingPredictionsState.set(false);
             })
-        )
-        .subscribe({
+            )
+            .subscribe({
             next: (response) => {
-                const predictions =
-                response.map((res) => mapUserPredictionResponse(res));
-
+                const predictions = response.map((res) => mapUserPredictionResponse(res));
                 this.usersPredictionsState.set(predictions);
             },
-            error: () => {
-                this.notificationService.errorMessage(
-                'Error',
-                'No se pudieron cargar las predicciones.'
-                );
+
+            error: (error: HttpErrorResponse) => {
+                if (error.status === 0) {
+                    this.predictionsErrorState.set('No se pudo conectar con el servidor.');
+                    return;
+                }
+
+                this.predictionsErrorState.set('No se pudieron cargar las predicciones.');
             }
-    })
+            });
     }
 
     createPrediction(prediction: SeasonPrediction) {

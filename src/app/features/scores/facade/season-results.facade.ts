@@ -3,6 +3,7 @@ import { SeasonResults } from "../models/season-result.model";
 import { SeasonResultService } from "../service/season-results.service";
 import { catchError, finalize, tap, throwError } from "rxjs";
 import { mapSeasonResultsResponse, mapSeasonResultsToRequest } from "../mappers/season-results.mapper";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,12 @@ export class SeasonResultFacade {
     private readonly savingResultsState = signal(false);
     readonly savingResults = this.savingResultsState.asReadonly();
 
+    private readonly resultsErrorState = signal<string | null>(null);
+    readonly resultsError = this.resultsErrorState.asReadonly();
+
     obtainSeasonResults(): void {
         this.loadingResultsState.set(true);
+        this.resultsErrorState.set(null);
 
         this.seasonResultService.getSeasonResults()
           .pipe(
@@ -39,8 +44,18 @@ export class SeasonResultFacade {
 
               this.seasonResultsState.set(results);
             },
-            error: () => {
-              this.seasonResultsState.set(null);
+            error: (error: HttpErrorResponse) => {
+              if (error.status === 404) {
+                this.seasonResultsState.set(null);
+                return;
+              }
+
+              if (error.status === 0) {
+                this.resultsErrorState.set('No se pudo conectar con el servidor.');
+                return;
+              }
+
+              this.resultsErrorState.set('No se pudieron cargar los resultados.' );
             }
           });
     }

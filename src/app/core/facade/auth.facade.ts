@@ -4,6 +4,7 @@ import { LoginCredentials, LoginResponse, User, UserCreationRequest } from "../.
 import { Notification } from "../service/notification.service";
 import { Router } from "@angular/router";
 import { finalize } from "rxjs";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -45,10 +46,34 @@ export class AuthFacade {
           );
           this.router.navigate(['/']);
         },
-        error: () => {
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 0) {
+            this.notificationService.errorMessage(
+              'Error de conexión',
+              'No se pudo conectar con el servidor.'
+            );
+            return;
+          }
+
+          if (error.status === 401) {
+            this.notificationService.errorMessage(
+              'Error al iniciar sesión',
+              'Usuario o contraseña incorrectos.'
+            );
+            return;
+          }
+
+          if (error.status >= 500) {
+            this.notificationService.errorMessage(
+              'Error del servidor',
+              'Ha ocurrido un problema al iniciar sesión.'
+            );
+            return;
+          }
+
           this.notificationService.errorMessage(
-            'Error al iniciar sesión',
-            'Usuario o contraseña incorrectos.'
+            'Error',
+            'No se pudo iniciar sesión.'
           );
         }
       });

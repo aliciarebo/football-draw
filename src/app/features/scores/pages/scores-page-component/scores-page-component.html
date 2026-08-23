@@ -16,7 +16,19 @@
       <p-progress-spinner />
       <span>Cargando clasificación...</span>
     </div>
-  } @else if (!seasonResultFacade.seasonResults()) {
+  } @else if (predictionFacade.predictionsError() || seasonResultFacade.resultsError()) {
+
+  <section class="error-state">
+    <i class="pi pi-exclamation-triangle"></i>
+
+    <h2>No se pudo cargar la clasificación</h2>
+
+    <p>
+      {{predictionFacade.predictionsError() ?? seasonResultFacade.resultsError()}}
+    </p>
+  </section>
+
+  }@else if (!seasonResultFacade.seasonResults()) {
     <section class="empty-scores">
       <i class="pi pi-clock"></i>
 
