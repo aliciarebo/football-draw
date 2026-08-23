@@ -24,49 +24,6 @@ export class ScoresService {
     goldenBoot: 10,
     zamoraWinner: 10
   };
-  private readonly storageKey = 'season-results';
-  private readonly seasonResultsState = signal<SeasonResults>(this.loadResults());
-  readonly seasonResult = this.seasonResultsState.asReadonly();
-  
-
-  loadResults(): SeasonResults {
-      const savedResults = localStorage.getItem(this.storageKey);
-
-      if (!savedResults) {
-        return this.getEmptyResults();
-      }
-
-      try {
-        return JSON.parse(savedResults);
-      } catch {
-          localStorage.removeItem(this.storageKey);
-          return this.getEmptyResults();
-      }
-  }
-
-  private getEmptyResults(): SeasonResults {
-    return {
-      laLigaWinner: null,
-      championsLeagueWinner: null,
-      copaReyWinner: null,
-      superCopaWinner: null,
-      topScorer: null,
-      standOutPlayer: null,
-      disappointmentPlayer: null,
-      ballondOr: null,
-      goldenBoot: null,
-      zamoraWinner: null
-    };
-  }
-
-  private saveResults(results: SeasonResults): void{
-    this.seasonResultsState.set(results);
-    localStorage.setItem(this.storageKey, JSON.stringify(results));
-  }
-
-  updateResults(results: SeasonResults): void {
-    this.saveResults(results);
-  }
 
   calculateScores(
     predictions: UserPrediction[],
