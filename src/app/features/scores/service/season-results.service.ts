@@ -1,6 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { SeasonResultsRequest, SeasonResultsResponse } from "../models/season-result.model";
+import { environment } from "../../../../environment/environment";
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +10,7 @@ import { SeasonResultsRequest, SeasonResultsResponse } from "../models/season-re
 export class SeasonResultService{
   private readonly http = inject(HttpClient);
 
-  private readonly apiUrl = 'https://localhost:7106/api/seasonresult';
+  private readonly apiUrl =  environment.apiUrl + '/seasonresult';;
 
   getSeasonResults() {
     return this.http.get<SeasonResultsResponse | null>(

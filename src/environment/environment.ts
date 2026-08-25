@@ -1,6 +1,6 @@
 export const environment = {
-  production: false,
-  apiUrl: 'https://localhost:7106/api',
+  production: true,
+  apiUrl: 'https://football-draw-api.onrender.com/api',
   footballApiUrl: '/football-api/v4',
   footballApiKey: 'bc5c141c48824eaea1b93d172e48114a',
   footballPlayerApiUrl: '/players-api',
