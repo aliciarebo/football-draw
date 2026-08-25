@@ -13,7 +13,7 @@
   
           <div>
             <span class="receipt-label">Última modificación</span>
-            <strong>{{ userPrediction.updatedAt | date:'dd/MM/yyyy HH:mm' }}</strong>
+            <strong>{{ userPrediction.updatedAt ?? userPrediction.createdAt| date:'dd/MM/yyyy HH:mm' }}</strong>
           </div>
         </div>
       <div class="receipt-divider"></div>
