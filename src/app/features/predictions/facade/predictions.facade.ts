@@ -60,6 +60,10 @@ export class PredictionFacade {
             },
 
             error: (error: HttpErrorResponse) => {
+                if (error.status === 404) {
+                    this.userPredictionState.set(null);
+                    return;
+                }
                 if (error.status === 0) {
                     this.userPredictionErrorState.set('No se pudo conectar con el servidor.');
                     return;
