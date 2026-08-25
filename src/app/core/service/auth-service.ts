@@ -1,13 +1,14 @@
 import { inject, Injectable} from '@angular/core';
-import { LoginCredentials, LoginResponse, User, UserCreationRequest, UserRole } from '../../features/home/models/user-prediction.model';
+import { LoginCredentials, LoginResponse, User, UserCreationRequest} from '../../features/home/models/user-prediction.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environment/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'https://localhost:7106/api/users';
+  private readonly apiUrl = environment.apiUrl + '/users';
 
   createUser(user: UserCreationRequest): Observable<User>{
     return this.http.post<User>(this.apiUrl, user);
