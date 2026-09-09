@@ -5,7 +5,15 @@
     <span>Cargando porras...</span>
   </div>
 
-} @else {
+}  @else if (predictionFacade.predictionsError()) {
+
+  <div class="error-container">
+    <p>
+      {{ predictionFacade.predictionsError() }}
+    </p>
+  </div>}
+  
+  @else {
 
   <main class="home-page">
     <header class="home-header">

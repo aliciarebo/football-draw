@@ -1,11 +1,5 @@
 [
   {
-    "id": 6,
-    "clubName": "Bayer 04 Leverkusen",
-    "shortName": "Leverkusen",
-    "image": "https://crests.football-data.org/3.png"
-  },
-  {
     "id": 7,
     "clubName": "Borussia Dortmund",
     "shortName": "Dortmund",
@@ -18,10 +12,10 @@
     "image": "https://crests.football-data.org/5.png"
   },
   {
-    "id": 13,
-    "clubName": "Eintracht Frankfurt",
-    "shortName": "Frankfurt",
-    "image": "https://crests.football-data.org/19.png"
+    "id": 67,
+    "clubName": "VfB Stuttgart",
+    "shortName": "Stuttgart",
+    "image": "https://crests.football-data.org/10.png"
   },
   {
     "id": 2,
@@ -30,10 +24,10 @@
     "image": "https://crests.football-data.org/57.png"
   },
   {
-    "id": 9,
-    "clubName": "Chelsea FC",
-    "shortName": "Chelsea",
-    "image": "https://crests.football-data.org/61.png"
+    "id": 53,
+    "clubName": "Aston Villa FC",
+    "shortName": "Aston Villa",
+    "image": "https://crests.football-data.org/58.png"
   },
   {
     "id": 25,
@@ -48,22 +42,10 @@
     "image": "https://crests.football-data.org/65.png"
   },
   {
-    "id": 28,
-    "clubName": "Newcastle United FC",
-    "shortName": "Newcastle",
-    "image": "https://crests.football-data.org/67.png"
-  },
-  {
-    "id": 49,
-    "clubName": "Tottenham Hotspur FC",
-    "shortName": "Tottenham",
-    "image": "https://crests.football-data.org/73.png"
-  },
-  {
-    "id": 5,
-    "clubName": "Athletic Club",
-    "shortName": "Athletic",
-    "image": "https://crests.football-data.org/77.png"
+    "id": 61,
+    "clubName": "Manchester United FC",
+    "shortName": "Man United",
+    "image": "https://crests.football-data.org/66.png"
   },
   {
     "id": 10,
@@ -84,28 +66,28 @@
     "image": "https://crests.football-data.org/86.png"
   },
   {
+    "id": 39,
+    "clubName": "Real Betis Balompié",
+    "shortName": "Real Betis",
+    "image": "https://crests.football-data.org/90.png"
+  },
+  {
     "id": 51,
     "clubName": "Villarreal CF",
     "shortName": "Villarreal",
     "image": "https://crests.football-data.org/94.png"
   },
   {
-    "id": 4,
-    "clubName": "Atalanta BC",
-    "shortName": "Atalanta",
-    "image": "https://crests.football-data.org/102.png"
+    "id": 52,
+    "clubName": "AS Roma",
+    "shortName": "Roma",
+    "image": "https://crests.football-data.org/100.png"
   },
   {
     "id": 17,
     "clubName": "FC Internazionale Milano",
     "shortName": "Inter",
     "image": "https://crests.football-data.org/108.png"
-  },
-  {
-    "id": 23,
-    "clubName": "Juventus FC",
-    "shortName": "Juventus",
-    "image": "https://crests.football-data.org/109.png"
   },
   {
     "id": 48,
@@ -120,10 +102,16 @@
     "image": "https://crests.football-data.org/498.png"
   },
   {
-    "id": 29,
-    "clubName": "Olympique de Marseille",
-    "shortName": "Marseille",
-    "image": "https://crests.football-data.org/516.png"
+    "id": 55,
+    "clubName": "FC Porto",
+    "shortName": "Porto",
+    "image": "https://crests.football-data.org/503.png"
+  },
+  {
+    "id": 60,
+    "clubName": "Lille OSC",
+    "shortName": "Lille",
+    "image": "https://crests.football-data.org/521.png"
   },
   {
     "id": 32,
@@ -132,10 +120,10 @@
     "image": "https://crests.football-data.org/524.png"
   },
   {
-    "id": 3,
-    "clubName": "AS Monaco FC",
-    "shortName": "Monaco",
-    "image": "https://crests.football-data.org/548.png"
+    "id": 63,
+    "clubName": "Racing Club de Lens",
+    "shortName": "RC Lens",
+    "image": "https://crests.football-data.org/546.png"
   },
   {
     "id": 21,
@@ -144,16 +132,10 @@
     "image": "https://crests.football-data.org/610.png"
   },
   {
-    "id": 34,
-    "clubName": "Qarabağ Ağdam FK",
-    "shortName": "Qarabağ Ağdam",
-    "image": "https://crests.football-data.org/611.png"
-  },
-  {
-    "id": 30,
-    "clubName": "PAE Olympiakos SFP",
-    "shortName": "Olympiakos",
-    "image": "https://crests.football-data.org/654.png"
+    "id": 56,
+    "clubName": "Fenerbahçe SK",
+    "shortName": "Fenerbahçe",
+    "image": "https://crests.football-data.org/613.png"
   },
   {
     "id": 33,
@@ -162,10 +144,16 @@
     "image": "https://crests.football-data.org/674.png"
   },
   {
-    "id": 1,
-    "clubName": "AFC Ajax",
-    "shortName": "Ajax",
-    "image": "https://crests.football-data.org/678.png"
+    "id": 57,
+    "clubName": "Feyenoord Rotterdam",
+    "shortName": "Feyenoord",
+    "image": "https://crests.football-data.org/675.png"
+  },
+  {
+    "id": 64,
+    "clubName": "RB Leipzig",
+    "shortName": "RB Leipzig",
+    "image": "https://crests.football-data.org/721.png"
   },
   {
     "id": 11,
@@ -180,22 +168,28 @@
     "image": "https://crests.football-data.org/930.png"
   },
   {
-    "id": 18,
-    "clubName": "FC København",
-    "shortName": "København",
-    "image": "https://crests.football-data.org/1876.png"
+    "id": 58,
+    "clubName": "FK Shakhtar Donetsk",
+    "shortName": "Shaktar",
+    "image": "https://crests.football-data.org/1887.png"
   },
   {
-    "id": 46,
-    "clubName": "Sport Lisboa e Benfica",
-    "shortName": "SL Benfica",
-    "image": "https://crests.football-data.org/1903.png"
+    "id": 62,
+    "clubName": "PAE AEK",
+    "shortName": "PAE AEK",
+    "image": "https://crests.football-data.org/1899.png"
   },
   {
-    "id": 43,
-    "clubName": "Royale Union Saint-Gilloise",
-    "shortName": "Union SG",
-    "image": "https://crests.football-data.org/3929.png"
+    "id": 59,
+    "clubName": "LASK Linz",
+    "shortName": "LASK",
+    "image": "https://crests.football-data.org/2016.png"
+  },
+  {
+    "id": 68,
+    "clubName": "Viking FK",
+    "shortName": "Viking",
+    "image": "https://crests.football-data.org/5720.png"
   },
   {
     "id": 19,
@@ -204,15 +198,21 @@
     "image": "https://crests.football-data.org/5721.png"
   },
   {
-    "id": 20,
-    "clubName": "FK Kairat",
-    "shortName": "FK Kairat",
-    "image": "https://crests.football-data.org/10601.png"
+    "id": 54,
+    "clubName": "Como 1907",
+    "shortName": "Como 1907",
+    "image": "https://crests.football-data.org/7397.png"
   },
   {
-    "id": 31,
-    "clubName": "Paphos FC",
-    "shortName": "Paphos FC",
-    "image": "https://crests.football-data.org/11034.png"
+    "id": 66,
+    "clubName": "ŠK Slovan Bratislava",
+    "shortName": "Sl. Bratislava",
+    "image": "https://crests.football-data.org/7509.png"
+  },
+  {
+    "id": 65,
+    "clubName": "Sabah FK",
+    "shortName": "Sabah FK",
+    "image": "https://crests.football-data.org/10233.png"
   }
 ]
