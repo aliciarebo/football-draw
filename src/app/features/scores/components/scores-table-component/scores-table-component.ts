@@ -1,8 +1,8 @@
-import { Component, Input, Signal } from '@angular/core';
-import { UserScore } from '../../models/season-result.model';
+import { Component, Input } from '@angular/core';
+import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
-import { ButtonModule } from 'primeng/button';
+import { UserScore } from '../../models/season-result.model';
 
 @Component({
   selector: 'app-scores-table-component',
@@ -11,6 +11,5 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './scores-table-component.css',
 })
 export class ScoresTableComponent {
- @Input() scores : UserScore[] = []
+  @Input() scores: UserScore[] = [];
 }
-
