@@ -1,10 +1,9 @@
-
 <app-season-results-form-component
-[initialResults]="seasonResultFacade.seasonResults()"
-[ballonDorPlayers]="optionsFacade.ballonDorPlayers()"
-[championsLeagueTeams]="optionsFacade.championsTeams()"
-[goalKeepers]="optionsFacade.goalkeeperPlayers()"
-[laLigaPlayers]="optionsFacade.laLigaPlayers()"
-[laLigaTeams]="optionsFacade.laLigaTeams()"
-(seasonResults)="saveSeasonResult($event)"
+  [initialResults]="seasonResultFacade.seasonResults()"
+  [ballonDorPlayers]="optionsFacade.ballonDorPlayers()"
+  [championsLeagueTeams]="optionsFacade.championsTeams()"
+  [goalKeepers]="optionsFacade.goalkeeperPlayers()"
+  [laLigaPlayers]="optionsFacade.laLigaPlayers()"
+  [laLigaTeams]="optionsFacade.laLigaTeams()"
+  (seasonResults)="saveSeasonResult($event)"
 />

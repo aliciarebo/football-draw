@@ -10,7 +10,9 @@
     "update:players": "node scripts/download-la-liga-players.mjs",
     "update:ballon-dor": "node scripts/download-ballon-dor-players.mjs",
     "update:teams": "node scripts/download-football-teams.mjs",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "format": "prettier --write \"src/**/*.{ts,html,scss,css,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss,css,json}\""
   },
   "private": true,
   "packageManager": "npm@10.9.7",

@@ -1,13 +1,18 @@
-import { inject, Injectable, signal } from "@angular/core";
-import { AuthService } from "../service/auth-service";
-import { LoginCredentials, LoginResponse, User, UserCreationRequest } from "../../features/home/models/user-prediction.model";
-import { Notification } from "../service/notification.service";
-import { Router } from "@angular/router";
-import { finalize } from "rxjs";
-import { HttpErrorResponse } from "@angular/common/http";
+import { inject, Injectable, signal } from '@angular/core';
+import { AuthService } from '../service/auth-service';
+import {
+  LoginCredentials,
+  LoginResponse,
+  User,
+  UserCreationRequest,
+} from '../../features/home/models/user-prediction.model';
+import { Notification } from '../service/notification.service';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthFacade {
   private readonly authService = inject(AuthService);
@@ -15,8 +20,8 @@ export class AuthFacade {
   private readonly notificationService = inject(Notification);
 
   private readonly router = inject(Router);
-  
-  private readonly currentUserState = signal<User|null>(this.loadUser());
+
+  private readonly currentUserState = signal<User | null>(this.loadUser());
   readonly currentUser = this.currentUserState.asReadonly();
 
   private readonly isAuthenticatedState = signal<boolean>(!!localStorage.getItem('token'));
@@ -30,19 +35,20 @@ export class AuthFacade {
 
   login(credential: LoginCredentials): void {
     this.loggingInState.set(true);
-    this.authService.login(credential)
+    this.authService
+      .login(credential)
       .pipe(
         finalize(() => {
           this.loggingInState.set(false);
-        })
+        }),
       )
-      .subscribe( {
+      .subscribe({
         next: (response) => {
           this.saveSession(response);
 
           this.notificationService.successMessage(
             'Sesión iniciada',
-            `Bienvenido, ${response.user.userName}.`
+            `Bienvenido, ${response.user.userName}.`,
           );
           this.router.navigate(['/']);
         },
@@ -50,7 +56,7 @@ export class AuthFacade {
           if (error.status === 0) {
             this.notificationService.errorMessage(
               'Error de conexión',
-              'No se pudo conectar con el servidor.'
+              'No se pudo conectar con el servidor.',
             );
             return;
           }
@@ -58,7 +64,7 @@ export class AuthFacade {
           if (error.status === 401) {
             this.notificationService.errorMessage(
               'Error al iniciar sesión',
-              'Usuario o contraseña incorrectos.'
+              'Usuario o contraseña incorrectos.',
             );
             return;
           }
@@ -66,16 +72,13 @@ export class AuthFacade {
           if (error.status >= 500) {
             this.notificationService.errorMessage(
               'Error del servidor',
-              'Ha ocurrido un problema al iniciar sesión.'
+              'Ha ocurrido un problema al iniciar sesión.',
             );
             return;
           }
 
-          this.notificationService.errorMessage(
-            'Error',
-            'No se pudo iniciar sesión.'
-          );
-        }
+          this.notificationService.errorMessage('Error', 'No se pudo iniciar sesión.');
+        },
       });
   }
 
@@ -94,20 +97,24 @@ export class AuthFacade {
 
   createUser(user: UserCreationRequest): void {
     this.registeringState.set(true);
-    this.authService.createUser(user)
-    .pipe(
-      finalize(() => {
-        this.registeringState.set(false);
-      })
-    )
-    .subscribe({
-      next:()=>{
-        this.notificationService.successMessage('Usuario creado', 'El usuario se ha creado correctamente')
-      },
-      error: ()=>{
-        this.notificationService.errorMessage('Error', 'No se pudo crear el usuario')
-      }
-    });
+    this.authService
+      .createUser(user)
+      .pipe(
+        finalize(() => {
+          this.registeringState.set(false);
+        }),
+      )
+      .subscribe({
+        next: () => {
+          this.notificationService.successMessage(
+            'Usuario creado',
+            'El usuario se ha creado correctamente',
+          );
+        },
+        error: () => {
+          this.notificationService.errorMessage('Error', 'No se pudo crear el usuario');
+        },
+      });
   }
 
   logout(): void {
@@ -128,5 +135,4 @@ export class AuthFacade {
 
     return JSON.parse(user);
   }
-    
 }

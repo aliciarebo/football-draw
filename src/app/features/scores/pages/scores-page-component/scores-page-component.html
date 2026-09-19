@@ -1,14 +1,10 @@
 <main class="scores-page">
   <header class="scores-header">
-    <p class="scores-kicker">
-      Temporada 2026/27
-    </p>
+    <p class="scores-kicker">Temporada 2026/27</p>
 
     <h1>Tabla de clasificación</h1>
 
-    <p class="scores-description">
-      Clasificación general según los aciertos de cada participante.
-    </p>
+    <p class="scores-description">Clasificación general según los aciertos de cada participante.</p>
   </header>
 
   @if (predictionFacade.loadingPredictions() || seasonResultFacade.loadingResults()) {
@@ -17,31 +13,24 @@
       <span>Cargando clasificación...</span>
     </div>
   } @else if (predictionFacade.predictionsError() || seasonResultFacade.resultsError()) {
+    <section class="error-state">
+      <i class="pi pi-exclamation-triangle"></i>
 
-  <section class="error-state">
-    <i class="pi pi-exclamation-triangle"></i>
+      <h2>No se pudo cargar la clasificación</h2>
 
-    <h2>No se pudo cargar la clasificación</h2>
-
-    <p>
-      {{predictionFacade.predictionsError() ?? seasonResultFacade.resultsError()}}
-    </p>
-  </section>
-
-  }@else if (!seasonResultFacade.seasonResults()) {
+      <p>
+        {{ predictionFacade.predictionsError() ?? seasonResultFacade.resultsError() }}
+      </p>
+    </section>
+  } @else if (!seasonResultFacade.seasonResults()) {
     <section class="empty-scores">
-
-      <h2>
-        Todavía no hay resultados oficiales
-      </h2>
+      <h2>Todavía no hay resultados oficiales</h2>
 
       <p>
         La clasificación se actualizará cuando se añadan los primeros resultados de la temporada.
       </p>
     </section>
   } @else {
-    <app-scores-table-component
-      [scores]="scores()"
-    />
+    <app-scores-table-component [scores]="scores()" />
   }
 </main>

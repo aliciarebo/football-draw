@@ -1,26 +1,30 @@
-import { Component, inject, OnInit} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { UserPrediction } from '../../models/user-prediction.model';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { TagModule } from 'primeng/tag';
 import { SeasonTicketComponent } from '../../../predictions/components/season-ticket-component/season-ticket-component';
-import { UserPredictionCardComponent } from "../../components/user-prediction-card-component/user-prediction-card-component";
+import { UserPredictionCardComponent } from '../../components/user-prediction-card-component/user-prediction-card-component';
 import { PredictionFacade } from '../../../predictions/facade/predictions.facade';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-home-page-component',
-  imports: [ButtonModule,
+  imports: [
+    ButtonModule,
     CardModule,
     DialogModule,
     TagModule,
-    SeasonTicketComponent, UserPredictionCardComponent, ProgressSpinnerModule],
+    SeasonTicketComponent,
+    UserPredictionCardComponent,
+    ProgressSpinnerModule,
+  ],
   providers: [],
   templateUrl: './home-page-component.html',
   styleUrl: './home-page-component.css',
 })
-export class HomePageComponent implements OnInit{
+export class HomePageComponent implements OnInit {
   detailVisible = false;
   selectedUserPrediction: UserPrediction | null = null;
   predictionFacade = inject(PredictionFacade);
@@ -40,6 +44,4 @@ export class HomePageComponent implements OnInit{
     this.detailVisible = false;
     this.selectedUserPrediction = null;
   }
-
-
 }

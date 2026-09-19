@@ -1,5 +1,5 @@
-import { CreateSeasonPredictionRequest } from "../../predictions/models/create-season-prediction-request.model";
-import { SeasonPrediction } from "../../predictions/models/season-prediction.model";
+import { CreateSeasonPredictionRequest } from '../../predictions/models/create-season-prediction-request.model';
+import { SeasonPrediction } from '../../predictions/models/season-prediction.model';
 export type UserRole = 'USER' | 'ADMIN';
 export interface User {
   id: number;
@@ -7,10 +7,10 @@ export interface User {
   role: UserRole;
 }
 export interface UserPrediction {
-    user: User;
-    seasonPrediction: SeasonPrediction;
-    createdAt: string;
-    updatedAt?: string | null;
+  user: User;
+  seasonPrediction: SeasonPrediction;
+  createdAt: string;
+  updatedAt?: string | null;
 }
 
 export interface LoginCredentials {
@@ -23,7 +23,7 @@ export interface LoginResponse {
   refreshToken: string;
 }
 
-export interface UserCreationRequest{
+export interface UserCreationRequest {
   userName: string;
   password: string;
 }

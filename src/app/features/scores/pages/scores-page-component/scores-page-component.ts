@@ -1,9 +1,9 @@
-import { Component, computed, inject, OnInit} from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { ScoresService } from '../../service/scores.service';
-import { ScoresTableComponent } from "../../components/scores-table-component/scores-table-component";
+import { ScoresTableComponent } from '../../components/scores-table-component/scores-table-component';
 import { PredictionFacade } from '../../../predictions/facade/predictions.facade';
 import { SeasonResultFacade } from '../../facade/season-results.facade';
-import { ProgressSpinnerModule } from "primeng/progressspinner";
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-scores-page-component',
@@ -11,14 +11,13 @@ import { ProgressSpinnerModule } from "primeng/progressspinner";
   templateUrl: './scores-page-component.html',
   styleUrl: './scores-page-component.css',
 })
-export class ScoresPageComponent implements OnInit{
+export class ScoresPageComponent implements OnInit {
   readonly predictionFacade = inject(PredictionFacade);
-  
+
   readonly seasonResultFacade = inject(SeasonResultFacade);
 
   readonly scoresService = inject(ScoresService);
 
-  
   readonly scores = computed(() => {
     const results = this.seasonResultFacade.seasonResults();
 
@@ -26,10 +25,7 @@ export class ScoresPageComponent implements OnInit{
       return [];
     }
 
-    return this.scoresService.calculateScores(
-      this.predictionFacade.usersPredictions(),
-      results
-    );
+    return this.scoresService.calculateScores(this.predictionFacade.usersPredictions(), results);
   });
 
   ngOnInit(): void {

@@ -1,14 +1,10 @@
-<form
-  class="results-form"
-  [formGroup]="seasonResultsForm"
-  (ngSubmit)="sendSeasonResult()"
->
+<form class="results-form" [formGroup]="seasonResultsForm" (ngSubmit)="sendSeasonResult()">
   <header class="form-header">
     <h1>Resultados oficiales</h1>
 
     <p>
-      Selecciona los ganadores confirmados de cada categoría.
-      Los resultados pendientes pueden quedarse vacíos.
+      Selecciona los ganadores confirmados de cada categoría. Los resultados pendientes pueden
+      quedarse vacíos.
     </p>
   </header>
 
@@ -17,9 +13,7 @@
 
     <div class="form-fields">
       <div class="form-field">
-        <label for="championsLeagueWinner">
-          Ganador de la Champions
-        </label>
+        <label for="championsLeagueWinner"> Ganador de la Champions </label>
 
         <p-select
           inputId="championsLeagueWinner"
@@ -37,9 +31,7 @@
       </div>
 
       <div class="form-field">
-        <label for="laLigaWinner">
-          Ganador de LaLiga
-        </label>
+        <label for="laLigaWinner"> Ganador de LaLiga </label>
 
         <p-select
           inputId="laLigaWinner"
@@ -57,9 +49,7 @@
       </div>
 
       <div class="form-field">
-        <label for="copaReyWinner">
-          Ganador de la Copa del Rey
-        </label>
+        <label for="copaReyWinner"> Ganador de la Copa del Rey </label>
 
         <p-select
           inputId="copaReyWinner"
@@ -77,9 +67,7 @@
       </div>
 
       <div class="form-field">
-        <label for="superCopaWinner">
-          Ganador de la Supercopa
-        </label>
+        <label for="superCopaWinner"> Ganador de la Supercopa </label>
 
         <p-select
           inputId="superCopaWinner"
@@ -100,9 +88,7 @@
 
     <div class="form-fields">
       <div class="form-field">
-        <label for="topScorer">
-          Ganador del Pichichi
-        </label>
+        <label for="topScorer"> Ganador del Pichichi </label>
 
         <p-select
           inputId="topScorer"
@@ -120,9 +106,7 @@
       </div>
 
       <div class="form-field">
-        <label for="standOutPlayer">
-          Jugador revelación
-        </label>
+        <label for="standOutPlayer"> Jugador revelación </label>
 
         <p-select
           inputId="standOutPlayer"
@@ -140,9 +124,7 @@
       </div>
 
       <div class="form-field">
-        <label for="disappointmentPlayer">
-          Jugador decepción
-        </label>
+        <label for="disappointmentPlayer"> Jugador decepción </label>
 
         <p-select
           inputId="disappointmentPlayer"
@@ -160,9 +142,7 @@
       </div>
 
       <div class="form-field">
-        <label for="zamoraWinner">
-          Trofeo Zamora
-        </label>
+        <label for="zamoraWinner"> Trofeo Zamora </label>
 
         <p-select
           inputId="zamoraWinner"
@@ -186,9 +166,7 @@
 
     <div class="form-fields">
       <div class="form-field">
-        <label for="ballondOr">
-          Balón de Oro
-        </label>
+        <label for="ballondOr"> Balón de Oro </label>
 
         <p-select
           inputId="ballondOr"
@@ -206,9 +184,7 @@
       </div>
 
       <div class="form-field">
-        <label for="goldenBoot">
-          Bota de Oro
-        </label>
+        <label for="goldenBoot"> Bota de Oro </label>
 
         <p-select
           inputId="goldenBoot"
@@ -228,14 +204,6 @@
   </section>
 
   <footer class="form-actions">
-    <button
-      pButton
-      type="submit"
-      icon="pi pi-save"
-    >
-      Guardar resultados
-    </button>
+    <button pButton type="submit" icon="pi pi-save">Guardar resultados</button>
   </footer>
 </form>
-
-

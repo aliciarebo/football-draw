@@ -1,138 +1,147 @@
+<form [formGroup]="seasonPredictionForm" (ngSubmit)="savePrediction()">
+  <legend>Selecciona tus pronósticos</legend>
+  @if (formSubmitted && seasonPredictionForm.invalid) {
+    <p-message severity="error" variant="simple" icon="pi pi-exclamation-triangle" [closable]="true"
+      >Debes completar todo el formulario.</p-message
+    >
+  }
+  <div>
+    <label for="championsWinner">Ganador de La Champions</label>
+    <p-select
+      [filter]="true"
+      filterBy="clubName"
+      filterPlaceholder="Buscar equipo"
+      [options]="championsLeagueTeams"
+      formControlName="championsWinner"
+      optionLabel="clubName"
+      dataKey="id"
+      placeholder="Selecciona un equipo"
+    />
+  </div>
 
+  <div>
+    <label for="ligaWinner">Ganador de La Liga</label>
+    <p-select
+      [filter]="true"
+      filterBy="clubName"
+      filterPlaceholder="Buscar equipo"
+      [options]="laLigaTeams"
+      formControlName="laLigaWinner"
+      optionLabel="clubName"
+      dataKey="id"
+      placeholder="Selecciona un equipo"
+    />
+  </div>
 
-    
-    <form [formGroup]="seasonPredictionForm" (ngSubmit)="savePrediction()">
-        <legend>Selecciona tus pronósticos</legend>
-        @if(formSubmitted && seasonPredictionForm.invalid){
-            <p-message severity="error" variant="simple" icon="pi pi-exclamation-triangle" [closable]="true">Debes completar todo el formulario.</p-message>
-        }
-        <div >
-        <label for="championsWinner">Ganador de La Champions</label>
-        <p-select 
-            [filter]="true"
-            filterBy="clubName"
-            filterPlaceholder="Buscar equipo"
-            [options]="championsLeagueTeams" 
-            formControlName="championsWinner"
-            optionLabel="clubName"
-            dataKey="id"
-            placeholder="Selecciona un equipo"/>
-        </div>
-    
-        <div >
-        <label for="ligaWinner">Ganador de La Liga</label>
-        <p-select 
-            [filter]="true"
-            filterBy="clubName"
-            filterPlaceholder="Buscar equipo"
-            [options]="laLigaTeams" 
-            formControlName="laLigaWinner"
-            optionLabel="clubName"
-            dataKey="id"
-            placeholder="Selecciona un equipo"/>
-        </div>
-    
-        <div >
-        <label for="copaReyWinner">Ganador de la Copa del Rey</label>
-        <p-select 
-            [options]="laLigaTeams" 
-            formControlName="copaReyWinner"
-            optionLabel="clubName"
-            dataKey="id"
-            placeholder="Selecciona un equipo"/>
-        </div>
-    
-        <div >
-        <label for="superCopaWinner">Ganador de la Supercopa</label>
-        <p-select 
-            [options]="superCopaTeams" 
-            formControlName="superCopaWinner"
-            optionLabel="clubName"
-            dataKey="id"
-            placeholder="Selecciona un equipo"/>
-        </div>
-    
-        <div >
-        <label for="topScorer">Ganador del Pichichi</label>
-        <p-select 
-            [filter]="true"
-            filterBy="name"
-            filterPlaceholder="Buscar jugador"
-            [options]="laLigaPlayers" 
-            formControlName="topScorer"
-            dataKey="id"
-            optionLabel="name"
-            placeholder="Selecciona un jugador"/>
-        </div>
-    
-        <div >
-        <label for="standOutPlayer">Jugador revelación</label>
-        <p-select 
-            [filter]="true"
-            filterBy="name"
-            filterPlaceholder="Buscar jugador"
-            [options]="laLigaPlayers" 
-            formControlName="standOutPlayer"
-            dataKey="id"
-            optionLabel="name"
-            placeholder="Selecciona un jugador"/>
-        </div>
-    
-        <div >
-        <label for="disappointmentPlayer">Jugador decepción</label>
-        <p-select 
-            [filter]="true"
-            filterBy="name"
-            filterPlaceholder="Buscar jugador"
-            [options]="laLigaPlayers" 
-            optionLabel="name"
-            dataKey="id"
-            formControlName="disappointmentPlayer"
-            placeholder="Selecciona un jugador"/>
-        </div>
-    
-        <div >
-        <label for="ballondOr">Balón de Oro</label>
-        <p-select
-            [filter]="true"
-            filterBy="name"
-            filterPlaceholder="Buscar jugador"
-            [options]="ballonDorPlayers" 
-            optionLabel="name"
-            dataKey="id"
-            formControlName="ballondOr"
-            placeholder="Selecciona un jugador"/>
-        </div>
-    
-        <div >
-        <label for="goldenBoot">Bota de Oro</label>
-        <p-select
-            [filter]="true"
-            filterBy="name"
-            filterPlaceholder="Buscar jugador"
-            [options]="ballonDorPlayers" 
-            optionLabel="name"
-            dataKey="id"
-            formControlName="goldenBoot"
-            placeholder="Selecciona un jugador"/>
-        </div>
-    
-        <div >
-        <label for="zamoraWinner">Zamora</label>
-        <p-select
-            [filter]="true"
-            filterBy="name"
-            filterPlaceholder="Buscar jugador" 
-            [options]="goalKeepers" 
-            optionLabel="name"
-            dataKey="id"
-            formControlName="zamoraWinner"
-            placeholder="Selecciona un jugador"/>
-        </div>
-        <p-button
-            type="submit"
-            [label]="initialPrediction ? 'Guardar cambios' : 'Enviar predicciones'"
-            [loading]="saving"
-            [disabled]="saving"
-        />
-    </form>
+  <div>
+    <label for="copaReyWinner">Ganador de la Copa del Rey</label>
+    <p-select
+      [options]="laLigaTeams"
+      formControlName="copaReyWinner"
+      optionLabel="clubName"
+      dataKey="id"
+      placeholder="Selecciona un equipo"
+    />
+  </div>
+
+  <div>
+    <label for="superCopaWinner">Ganador de la Supercopa</label>
+    <p-select
+      [options]="superCopaTeams"
+      formControlName="superCopaWinner"
+      optionLabel="clubName"
+      dataKey="id"
+      placeholder="Selecciona un equipo"
+    />
+  </div>
+
+  <div>
+    <label for="topScorer">Ganador del Pichichi</label>
+    <p-select
+      [filter]="true"
+      filterBy="name"
+      filterPlaceholder="Buscar jugador"
+      [options]="laLigaPlayers"
+      formControlName="topScorer"
+      dataKey="id"
+      optionLabel="name"
+      placeholder="Selecciona un jugador"
+    />
+  </div>
+
+  <div>
+    <label for="standOutPlayer">Jugador revelación</label>
+    <p-select
+      [filter]="true"
+      filterBy="name"
+      filterPlaceholder="Buscar jugador"
+      [options]="laLigaPlayers"
+      formControlName="standOutPlayer"
+      dataKey="id"
+      optionLabel="name"
+      placeholder="Selecciona un jugador"
+    />
+  </div>
+
+  <div>
+    <label for="disappointmentPlayer">Jugador decepción</label>
+    <p-select
+      [filter]="true"
+      filterBy="name"
+      filterPlaceholder="Buscar jugador"
+      [options]="laLigaPlayers"
+      optionLabel="name"
+      dataKey="id"
+      formControlName="disappointmentPlayer"
+      placeholder="Selecciona un jugador"
+    />
+  </div>
+
+  <div>
+    <label for="ballondOr">Balón de Oro</label>
+    <p-select
+      [filter]="true"
+      filterBy="name"
+      filterPlaceholder="Buscar jugador"
+      [options]="ballonDorPlayers"
+      optionLabel="name"
+      dataKey="id"
+      formControlName="ballondOr"
+      placeholder="Selecciona un jugador"
+    />
+  </div>
+
+  <div>
+    <label for="goldenBoot">Bota de Oro</label>
+    <p-select
+      [filter]="true"
+      filterBy="name"
+      filterPlaceholder="Buscar jugador"
+      [options]="ballonDorPlayers"
+      optionLabel="name"
+      dataKey="id"
+      formControlName="goldenBoot"
+      placeholder="Selecciona un jugador"
+    />
+  </div>
+
+  <div>
+    <label for="zamoraWinner">Zamora</label>
+    <p-select
+      [filter]="true"
+      filterBy="name"
+      filterPlaceholder="Buscar jugador"
+      [options]="goalKeepers"
+      optionLabel="name"
+      dataKey="id"
+      formControlName="zamoraWinner"
+      placeholder="Selecciona un jugador"
+    />
+  </div>
+  <p-button
+    type="submit"
+    [label]="initialPrediction ? 'Guardar cambios' : 'Enviar predicciones'"
+    [loading]="saving"
+    [disabled]="saving"
+  />
+</form>
