@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Card } from "primeng/card";
-import { Tag } from "primeng/tag";
-import { Button } from "primeng/button";
+import { Card } from 'primeng/card';
+import { Tag } from 'primeng/tag';
+import { Button } from 'primeng/button';
 import { UserPrediction } from '../../models/user-prediction.model';
 
 @Component({
@@ -11,8 +11,6 @@ import { UserPrediction } from '../../models/user-prediction.model';
   styleUrl: './user-prediction-card-component.css',
 })
 export class UserPredictionCardComponent {
-  @Input() userPrediction: UserPrediction |null = null
+  @Input() userPrediction: UserPrediction | null = null;
   @Output() openPrediction = new EventEmitter<void>();
-
-
 }

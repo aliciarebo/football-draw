@@ -8,7 +8,6 @@ import { SeasonPrediction } from '../../models/season-prediction.model';
 import { MessageModule } from 'primeng/message';
 import { SUPER_COPA_TEAMS } from '../../../../core/data/super-copa-teams.data';
 
-
 @Component({
   selector: 'app-season-prediction-form-component',
   imports: [SelectModule, ReactiveFormsModule, ButtonModule, MessageModule],
@@ -17,61 +16,49 @@ import { SUPER_COPA_TEAMS } from '../../../../core/data/super-copa-teams.data';
   styleUrl: './season-prediction-form-component.css',
 })
 export class SeasonPredictionFormComponent implements OnChanges {
-  
   @Output() seasonPrediction = new EventEmitter<SeasonPrediction>();
   @Input() laLigaTeams: Team[] = [];
-  @Input()championsLeagueTeams: Team[] = []
-  @Input() laLigaPlayers: Player[] = []
-  @Input()goalKeepers: Player[] = [];
-  @Input()ballonDorPlayers: Player[] = [];
-  @Input()initialPrediction: SeasonPrediction |null = null;
+  @Input() championsLeagueTeams: Team[] = [];
+  @Input() laLigaPlayers: Player[] = [];
+  @Input() goalKeepers: Player[] = [];
+  @Input() ballonDorPlayers: Player[] = [];
+  @Input() initialPrediction: SeasonPrediction | null = null;
   @Input() saving = false;
   readonly superCopaTeams = SUPER_COPA_TEAMS;
   @Output() searchPlayer = new EventEmitter<string>();
   formSubmitted = false;
 
-
   ngOnChanges(changes: SimpleChanges): void {
-    if ( changes['initialPrediction'] && this.initialPrediction){
+    if (changes['initialPrediction'] && this.initialPrediction) {
       this.seasonPredictionForm.patchValue({
         laLigaWinner: this.initialPrediction.laLigaWinner,
-        championsWinner:
-          this.initialPrediction.championsLeagueWinner,
-        copaReyWinner:
-          this.initialPrediction.copaReyWinner,
-        superCopaWinner:
-          this.initialPrediction.superCopaWinner,
-        topScorer:
-          this.initialPrediction.topScorer,
-        standOutPlayer:
-          this.initialPrediction.standOutPlayer,
-        disappointmentPlayer:
-          this.initialPrediction.disappointmentPlayer,
-        ballondOr:
-          this.initialPrediction.ballondOr,
-        goldenBoot:
-          this.initialPrediction.goldenBoot,
-        zamoraWinner:
-          this.initialPrediction.zamoraWinner
+        championsWinner: this.initialPrediction.championsLeagueWinner,
+        copaReyWinner: this.initialPrediction.copaReyWinner,
+        superCopaWinner: this.initialPrediction.superCopaWinner,
+        topScorer: this.initialPrediction.topScorer,
+        standOutPlayer: this.initialPrediction.standOutPlayer,
+        disappointmentPlayer: this.initialPrediction.disappointmentPlayer,
+        ballondOr: this.initialPrediction.ballondOr,
+        goldenBoot: this.initialPrediction.goldenBoot,
+        zamoraWinner: this.initialPrediction.zamoraWinner,
       });
     }
   }
 
   seasonPredictionForm = new FormGroup({
-    laLigaWinner: new FormControl<Team| null>(null, { validators: Validators.required}),
-    championsWinner: new FormControl<Team| null>(null, { validators: Validators.required}),
-    copaReyWinner: new FormControl<Team| null>(null, { validators: Validators.required}),
-    superCopaWinner: new FormControl<Team| null>(null, { validators: Validators.required}),
-    topScorer: new FormControl<Player|null>(null, {validators: Validators.required}),
-    standOutPlayer: new FormControl<Player|null>(null, { validators: Validators.required}),
-    disappointmentPlayer: new FormControl<Player|null>(null, { validators: Validators.required}),
-    ballondOr: new FormControl<Player|null>(null, { validators: Validators.required}),
-    goldenBoot: new FormControl<Player|null>(null, { validators: Validators.required}),
-    zamoraWinner: new FormControl<Player|null>(null, { validators: Validators.required}),
-  })
+    laLigaWinner: new FormControl<Team | null>(null, { validators: Validators.required }),
+    championsWinner: new FormControl<Team | null>(null, { validators: Validators.required }),
+    copaReyWinner: new FormControl<Team | null>(null, { validators: Validators.required }),
+    superCopaWinner: new FormControl<Team | null>(null, { validators: Validators.required }),
+    topScorer: new FormControl<Player | null>(null, { validators: Validators.required }),
+    standOutPlayer: new FormControl<Player | null>(null, { validators: Validators.required }),
+    disappointmentPlayer: new FormControl<Player | null>(null, { validators: Validators.required }),
+    ballondOr: new FormControl<Player | null>(null, { validators: Validators.required }),
+    goldenBoot: new FormControl<Player | null>(null, { validators: Validators.required }),
+    zamoraWinner: new FormControl<Player | null>(null, { validators: Validators.required }),
+  });
 
-
-  savePrediction(){
+  savePrediction() {
     this.formSubmitted = true;
     this.seasonPredictionForm.markAllAsTouched();
 
@@ -106,11 +93,10 @@ export class SeasonPredictionFormComponent implements OnChanges {
       disappointmentPlayer: value.disappointmentPlayer,
       ballondOr: value.ballondOr,
       goldenBoot: value.goldenBoot,
-      zamoraWinner: value.zamoraWinner
+      zamoraWinner: value.zamoraWinner,
     };
 
-    
-    console.log(prediction)
+    console.log(prediction);
     this.seasonPrediction.emit(prediction);
   }
 }

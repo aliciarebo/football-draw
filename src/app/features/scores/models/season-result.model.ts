@@ -1,6 +1,6 @@
-import { User } from "../../home/models/user-prediction.model";
-import { Player } from "../../predictions/models/player.model";
-import { Team } from "../../predictions/models/team-model";
+import { User } from '../../home/models/user-prediction.model';
+import { Player } from '../../predictions/models/player.model';
+import { Team } from '../../predictions/models/team-model';
 
 export interface SeasonResults {
   laLigaWinner: Team | null;
@@ -28,7 +28,7 @@ export interface UserScore {
   breakdown: ScoreBreakdown[];
 }
 
-export interface SeasonResultsRequest{
+export interface SeasonResultsRequest {
   championsLeagueWinnerId: number | null;
   championsLeagueWinnerName: string | null;
   laLigaWinnerId: number | null;
@@ -51,8 +51,8 @@ export interface SeasonResultsRequest{
   zamoraWinnerName: string | null;
 }
 
-export interface SeasonResultsResponse{
-  id:number;
+export interface SeasonResultsResponse {
+  id: number;
   championsLeagueWinnerId: number | null;
   championsLeagueWinnerName: string | null;
   laLigaWinnerId: number | null;
@@ -73,5 +73,4 @@ export interface SeasonResultsResponse{
   goldenBootName: string | null;
   zamoraWinnerId: number | null;
   zamoraWinnerName: string | null;
-
 }

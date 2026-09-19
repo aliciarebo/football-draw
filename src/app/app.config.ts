@@ -12,14 +12,12 @@ export const appConfig: ApplicationConfig = {
     MessageService,
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(
-      withInterceptors([authInterceptor])
-    ),
+    provideHttpClient(withInterceptors([authInterceptor])),
     providePrimeNG({
       theme: {
-        preset: Aura
+        preset: Aura,
       },
-      ripple: true
-    })
-  ]
+      ripple: true,
+    }),
+  ],
 };

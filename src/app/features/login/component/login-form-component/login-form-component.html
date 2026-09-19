@@ -1,27 +1,15 @@
-
-  <div class="auth-wrapper">
-
+<div class="auth-wrapper">
   <p-card class="auth-card">
-
     @if (hasUser()) {
-
       <div class="auth-header">
         <i class="pi pi-user"></i>
         <h2>Iniciar sesión</h2>
         <p>Accede para ver y gestionar tus predicciones</p>
       </div>
 
-      <form
-        [formGroup]="loginForm"
-        (ngSubmit)="login()"
-        class="auth-form"
-      >
-
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="auth-form">
         <div class="form-field">
-
-          <label for="loginUserName">
-            Usuario
-          </label>
+          <label for="loginUserName"> Usuario </label>
 
           <input
             pInputText
@@ -32,21 +20,14 @@
           />
 
           @if (
-            loginForm.controls.loginUserName.touched &&
-            loginForm.controls.loginUserName.invalid
+            loginForm.controls.loginUserName.touched && loginForm.controls.loginUserName.invalid
           ) {
-            <small class="error">
-              El usuario es obligatorio.
-            </small>
+            <small class="error"> El usuario es obligatorio. </small>
           }
-
         </div>
 
         <div class="form-field">
-
-          <label for="loginPassword">
-            Contraseña
-          </label>
+          <label for="loginPassword"> Contraseña </label>
 
           <p-password
             inputId="loginPassword"
@@ -58,14 +39,10 @@
           />
 
           @if (
-            loginForm.controls.loginPassword.touched &&
-            loginForm.controls.loginPassword.invalid
+            loginForm.controls.loginPassword.touched && loginForm.controls.loginPassword.invalid
           ) {
-            <small class="error">
-              La contraseña es obligatoria.
-            </small>
+            <small class="error"> La contraseña es obligatoria. </small>
           }
-
         </div>
 
         <p-button
@@ -76,35 +53,22 @@
           [loading]="loggingIn"
           [disabled]="loggingIn"
         />
-
       </form>
 
       <div class="auth-footer">
         <span>¿No tienes cuenta?</span>
 
-        <p-button
-          label="Crear cuenta"
-          [link]="true"
-          type="button"
-          (onClick)="showRegisterForm()"
-        />
+        <p-button label="Crear cuenta" [link]="true" type="button" (onClick)="showRegisterForm()" />
       </div>
-
-    }@else {
+    } @else {
       <div class="auth-header">
         <i class="pi pi-user"></i>
         <h2>Crear cuenta</h2>
         <p>Crea un usuario para gestionar tus predicciones</p>
       </div>
-      <form 
-        [formGroup]="createUserForm"
-        (ngSubmit)="createUser()"
-        class="auth-form"
-      >
-      <div class="form-field">
-        <label for="registerUserName">
-            Usuario
-          </label>
+      <form [formGroup]="createUserForm" (ngSubmit)="createUser()" class="auth-form">
+        <div class="form-field">
+          <label for="registerUserName"> Usuario </label>
 
           <input
             pInputText
@@ -118,18 +82,12 @@
             createUserForm.controls.registerUserName.touched &&
             createUserForm.controls.registerUserName.invalid
           ) {
-            <small class="error">
-              El nombre es obligatorio.
-            </small>
+            <small class="error"> El nombre es obligatorio. </small>
           }
+        </div>
 
-      </div>
-
-      <div class="form-field">
-
-          <label for="registerPassword">
-            Contraseña
-          </label>
+        <div class="form-field">
+          <label for="registerPassword"> Contraseña </label>
 
           <p-password
             inputId="registerPassword"
@@ -144,39 +102,24 @@
             createUserForm.controls.registerPassword.touched &&
             createUserForm.controls.registerPassword.invalid
           ) {
-            <small class="error">
-              La contraseña es obligatoria.
-            </small>
+            <small class="error"> La contraseña es obligatoria. </small>
           }
-
-      </div>
-      <p-button
+        </div>
+        <p-button
           type="submit"
           label="Crear usuario"
           icon="pi pi-user-plus"
           styleClass="submit-button"
           [loading]="registering"
           [disabled]="registering"
-          
         />
-    
       </form>
 
-    <div class="auth-footer">
+      <div class="auth-footer">
         <span>¿Ya tienes cuenta?</span>
 
-        <p-button
-          label="Iniciar sesión"
-          [link]="true"
-          type="button"
-          (onClick)="showLoginForm()"
-        />
+        <p-button label="Iniciar sesión" [link]="true" type="button" (onClick)="showLoginForm()" />
       </div>
-
-}
-
+    }
   </p-card>
-
 </div>
-
-

@@ -1,37 +1,39 @@
-import { CreateSeasonPredictionRequest } from "../models/create-season-prediction-request.model";
-import { SeasonPrediction } from "../models/season-prediction.model";
+import { CreateSeasonPredictionRequest } from '../models/create-season-prediction-request.model';
+import { SeasonPrediction } from '../models/season-prediction.model';
 
-export function mapSeasonPredictionToRequest(prediction: SeasonPrediction): CreateSeasonPredictionRequest {
-    const request: CreateSeasonPredictionRequest = {
-        championsLeagueWinnerId: prediction.championsLeagueWinner.id,
-        championsLeagueWinnerName: prediction.championsLeagueWinner.clubName,
-        
-        laLigaWinnerId: prediction.laLigaWinner.id,
-        laLigaWinnerName: prediction.laLigaWinner.clubName,
+export function mapSeasonPredictionToRequest(
+  prediction: SeasonPrediction,
+): CreateSeasonPredictionRequest {
+  const request: CreateSeasonPredictionRequest = {
+    championsLeagueWinnerId: prediction.championsLeagueWinner.id,
+    championsLeagueWinnerName: prediction.championsLeagueWinner.clubName,
 
-        copaReyWinnerId: prediction.copaReyWinner.id,
-        copaReyWinnerName: prediction.copaReyWinner.clubName,
+    laLigaWinnerId: prediction.laLigaWinner.id,
+    laLigaWinnerName: prediction.laLigaWinner.clubName,
 
-        superCopaWinnerId: prediction.superCopaWinner.id,
-        superCopaWinnerName: prediction.superCopaWinner.clubName,
+    copaReyWinnerId: prediction.copaReyWinner.id,
+    copaReyWinnerName: prediction.copaReyWinner.clubName,
 
-        topScorerId: prediction.topScorer.id,
-        topScorerName: prediction.topScorer.name,
+    superCopaWinnerId: prediction.superCopaWinner.id,
+    superCopaWinnerName: prediction.superCopaWinner.clubName,
 
-        standOutPlayerId: prediction.standOutPlayer.id,
-        standOutPlayerName: prediction.standOutPlayer.name,
+    topScorerId: prediction.topScorer.id,
+    topScorerName: prediction.topScorer.name,
 
-        disappointmentPlayerId: prediction.disappointmentPlayer.id,
-        disappointmentPlayerName: prediction.disappointmentPlayer.name,
+    standOutPlayerId: prediction.standOutPlayer.id,
+    standOutPlayerName: prediction.standOutPlayer.name,
 
-        ballondOrId: prediction.ballondOr.id,
-        ballondOrName: prediction.ballondOr.name,
+    disappointmentPlayerId: prediction.disappointmentPlayer.id,
+    disappointmentPlayerName: prediction.disappointmentPlayer.name,
 
-        goldenBootId: prediction.goldenBoot.id,
-        goldenBootName: prediction.goldenBoot.name,
+    ballondOrId: prediction.ballondOr.id,
+    ballondOrName: prediction.ballondOr.name,
 
-        zamoraWinnerId: prediction.zamoraWinner.id,
-        zamoraWinnerName: prediction.zamoraWinner.name
-       }
-    return request;
+    goldenBootId: prediction.goldenBoot.id,
+    goldenBootName: prediction.goldenBoot.name,
+
+    zamoraWinnerId: prediction.zamoraWinner.id,
+    zamoraWinnerName: prediction.zamoraWinner.name,
+  };
+  return request;
 }

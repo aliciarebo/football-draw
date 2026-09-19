@@ -11,15 +11,15 @@ export class Notification {
     this.messageService.add({
       severity: 'success',
       summary,
-      detail
+      detail,
     });
   }
 
-  errorMessage(summary: string, detail: string): void{
+  errorMessage(summary: string, detail: string): void {
     this.messageService.add({
       severity: 'error',
       summary,
-      detail
+      detail,
     });
   }
 }
